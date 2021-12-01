@@ -12,7 +12,14 @@
     <tbody>
       <tr *ngFor="let url of urls">
         <td>{{ url.longUrl }}</td>
-        <td>{{ url.shortUrl }}</td>
+        <td>
+          <a
+            href="https://hostm.io/s/{{ url.shortUrl }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            >https://hostm.io/s/{{ url.shortUrl }}</a
+          >
+        </td>
         <!-- <td>
           <button
             type="button"
