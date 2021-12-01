@@ -7,7 +7,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  domain = 'http://api.hostmonkey.io/api/v1/links';
+  domain = 'https://api.hostmonkey.io/api/v1/links';
   shortDomain = 'http://localhost:46001';
   getTasks(): Observable<URL[]> {
     return this.http.get<URL[]>(this.domain);
