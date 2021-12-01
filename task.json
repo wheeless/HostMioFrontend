@@ -1,0 +1,46 @@
+{
+  "Tasks": [
+    {
+      "taskName": "Style this app",
+      "taskDue": "2020-12-30",
+      "completedTask": "true",
+      "id": 1
+    },
+    {
+      "taskName": "Play WoW",
+      "taskDue": "2020-12-29",
+      "completedTask": "false",
+      "id": 2
+    },
+    {
+      "taskName": "Go to store",
+      "taskDue": "2020-12-30",
+      "completedTask": "true",
+      "id": 4
+    },
+    {
+      "taskName": "Clean Car",
+      "taskDue": "2020-12-31",
+      "completedTask": "false",
+      "id": 5
+    },
+    {
+      "taskName": "Change Oil",
+      "taskDue": "2020-12-31",
+      "completedTask": "false",
+      "id": 6
+    },
+    {
+      "taskName": "Fix front door",
+      "taskDue": "2020-12-31",
+      "completedTask": "false",
+      "id": 7
+    },
+    {
+      "taskName": "Organize shed",
+      "taskDue": "2020-12-31",
+      "completedTask": "false",
+      "id": 8
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<div class="container">
+  <form (ngSubmit)="addTask()">
+    <label for="longUrl" class="form-label">Long Url</label>
+    <input
+      type="text"
+      id="longUrl"
+      class="form-control"
+      placeholder="Enter Long URL"
+      [(ngModel)]="url.longUrl"
+      [ngModelOptions]="{ standalone: true }"
+      required
+    />
+    <br />
+    <label for="shortUrl">Short Url (leave blank to randomize)</label>
+    <input
+      type="text"
+      id="shortUrl"
+      class="form-control"
+      placeholder="Enter Short URL"
+      [(ngModel)]="url.shortUrl"
+      [ngModelOptions]="{ standalone: true }"
+    />
+
+    <br />
+    <button class="btn btn-success" id="createNewTask">Create Task</button>
+  </form>
+</div>
