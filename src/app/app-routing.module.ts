@@ -12,19 +12,19 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/urls',
+    redirectTo: '/s/urls',
     pathMatch: 'full',
   },
   {
-    path: 'urls',
+    path: 's/urls',
     component: DisplayTaskComponent,
   },
   {
-    path: 'add',
+    path: 's/add',
     component: AddTaskComponent,
   },
   {
-    path: 'detail/:id',
+    path: 's/detail/:id',
     component: TaskDetailsComponent,
   },
   // {
