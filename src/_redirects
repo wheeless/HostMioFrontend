@@ -1,1 +1,1 @@
-/ shortUrl=:shortUrl https://api.hostmonkey.io/:shortUrl
+/s/* https://api.hostmonkey.io/:splat
