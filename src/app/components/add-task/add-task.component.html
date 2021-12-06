@@ -8,7 +8,8 @@
       id="longUrl"
       class="form-control"
       placeholder="https://example.com"
-      pattern="https://.*"
+      pattern="^(http(s)?:\/\/)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$"
+      oninvalid="this.setCustomValidity('Please match the requested format')"
       [(ngModel)]="url.longUrl"
       [ngModelOptions]="{ standalone: true }"
       required
