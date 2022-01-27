@@ -1,1 +1,1 @@
-/s/* https://api.hostmonkey.io/:splat
+/s/* https://api.hostmonkey.io/api/v1/links/:splat
