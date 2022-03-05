@@ -16,12 +16,16 @@ import { DisplayTaskComponent } from './components/display-task/display-task.com
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from 'ngx-clipboard';
+import { ReversePipe } from './reverse.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     DisplayTaskComponent,
     AddTaskComponent,
     TaskDetailsComponent,
+    ReversePipe,
+    
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule],
   providers: [],

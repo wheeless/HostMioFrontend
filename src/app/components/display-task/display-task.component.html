@@ -3,7 +3,7 @@
   <h2>URL List</h2>
   <button
     type="button"
-    class="btn btn-info button-margin btn-xs"
+    class="btn btn-info button-margin btn-lg btn-block"
     (click)="showText()"
   >
     {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
@@ -52,7 +52,7 @@
     </tbody>
   </table> -->
 
-  <div class="card text-center" *ngFor="let url of urls">
+  <div class="card text-center" *ngFor="let url of urls | reverse">
     <h5 class="card-header">
       <a
         href="https://hostm.io/s/{{ url.shortUrl }}"

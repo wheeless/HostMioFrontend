@@ -4,16 +4,25 @@ import { URL } from 'src/app/models/task';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { from } from 'rxjs';
+import { Pipe, PipeTransform } from '@angular/core';
 //import { TaskModule } from '../../modules/task/task.module';
+
+
 @Component({
   selector: 'app-display-task',
   templateUrl: './display-task.component.html',
   styleUrls: ['./display-task.component.css'],
 })
+
+
+
 export class DisplayTaskComponent implements OnInit {
+  
   //Creating a model to handle our new task inputs
   urls: URL[];
-  
+  transform(value) {
+    return value.slice().reverse();
+  }
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
