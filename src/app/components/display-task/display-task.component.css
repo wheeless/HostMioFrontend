@@ -5,3 +5,8 @@ td {
 table {
   table-layout: fixed;
 }
+
+.limitTextHeight {
+  height: 20px;
+  overflow: hidden;
+}

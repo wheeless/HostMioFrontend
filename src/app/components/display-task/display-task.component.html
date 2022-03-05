@@ -1,11 +1,19 @@
 <div class="container">
+  <!-- <mat-spinner *ngIf="getTasks"></mat-spinner> -->
   <h2>URL List</h2>
-  <table class="table table-hover">
+  <button
+    type="button"
+    class="btn btn-info button-margin btn-xs"
+    (click)="showText()"
+  >
+    {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
+  </button>
+  <!-- <table class="table table-hover">
     <thead>
       <tr>
         <th>Long Url</th>
         <th>Short Url</th>
-        <!-- <th>Details</th> -->
+        <th>Copy Url</th>
         <th>Delete</th>
       </tr>
     </thead>
@@ -20,15 +28,17 @@
             >https://hostm.io/s/{{ url.shortUrl }}</a
           >
         </td>
-        <!-- <td>
+        <td>
           <button
             type="button"
-            class="btn btn-info button-margin btn-xs"
-            (click)="getTask(url.shortUrl)"
+            class="btn btn-primary button-margin btn-xs"
+            ngxClipboard
+            [cbContent]="'https://hostm.io/s/' + url.shortUrl"
           >
-            URL Details
+            Copy Url
           </button>
-        </td> -->
+        </td>
+
         <td>
           <button
             type="button"
@@ -40,5 +50,41 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div class="card text-center" *ngFor="let url of urls">
+    <h5 class="card-header">
+      <a
+        href="https://hostm.io/s/{{ url.shortUrl }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >https://hostm.io/s/{{ url.shortUrl }}</a
+      >
+    </h5>
+    <div class="card-body">
+      <div class="card-title" [ngClass]="{ limitTextHeight: isReadMore }">
+        {{ url.longUrl }}
+      </div>
+      <!-- <button type="button" (click)="showText()">
+        {{ isReadMore ? "Read More" : "Read Less" }}
+      </button> -->
+      <p class="card-text">Link descriptions coming in v2 of the api</p>
+      <button
+        type="button"
+        class="btn btn-primary button-margin btn-xs"
+        ngxClipboard
+        [cbContent]="'https://hostm.io/s/' + url.shortUrl"
+      >
+        Copy Url
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger button-margin btn-xs"
+        (click)="deleteTask(url._id)"
+      >
+        Delete
+      </button>
+    </div>
+    <br />
+  </div>
 </div>

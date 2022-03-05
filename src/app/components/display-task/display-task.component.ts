@@ -13,14 +13,19 @@ import { from } from 'rxjs';
 export class DisplayTaskComponent implements OnInit {
   //Creating a model to handle our new task inputs
   urls: URL[];
-
+  
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
+    
   }
+  isReadMore = true
 
+  showText() {
+     this.isReadMore = !this.isReadMore
+  }
   // getTask(shortUrl: string): void {
   //   this.taskServer
   //     .getTask(shortUrl)
@@ -44,6 +49,7 @@ export class DisplayTaskComponent implements OnInit {
 
   ngOnInit() {
     this.getTasks();
+    
   }
   // onSubmit() {
   //   // for (let i = 0; i < Task.length; i++) {

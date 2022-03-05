@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 //import { HttpModule } from '@angular/http';
@@ -12,6 +14,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
 import { DisplayTaskComponent } from './components/display-task/display-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClipboardModule } from 'ngx-clipboard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,7 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
     AddTaskComponent,
     TaskDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule],
   providers: [],
   bootstrap: [AppComponent],
 })
