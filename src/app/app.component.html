@@ -34,41 +34,51 @@
     </nav>
   </div> -->
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"> HostMio by HostMonkey</a>
-    <button
-      class="navbar-toggler d-lg-none"
-      type="button"
-      (click)="isCollapsed = !isCollapsed"
-      [attr.aria-expanded]="!isCollapsed"
-      aria-controls="navbarsExampleDefault"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#"
+        ><img
+          src="/assets/images/android-chrome-512x512.png"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />HostMio by HostMonkey</a
+      >
+      <button
+        class="navbar-toggler d-lg-none"
+        type="button"
+        (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="navbarsExampleDefault"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div
-      class="collapse navbar-collapse"
-      id="navbarsExampleDefault"
-      [ngbCollapse]="isCollapsed"
-    >
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/urls">URLs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/add">Add URL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#">Why HostMio?</a>
-        </li>
-      </ul>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarsExampleDefault"
+        [ngbCollapse]="isCollapsed"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/urls">URLs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add">Add URL</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#">Why HostMio?</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
