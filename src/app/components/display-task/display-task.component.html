@@ -8,49 +8,6 @@
   >
     {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
   </button>
-  <!-- <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Long Url</th>
-        <th>Short Url</th>
-        <th>Copy Url</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let url of urls">
-        <td>{{ url.longUrl }}</td>
-        <td>
-          <a
-            href="https://hostm.io/s/{{ url.shortUrl }}"
-            target="_blank"
-            rel="noopener noreferrer"
-            >https://hostm.io/s/{{ url.shortUrl }}</a
-          >
-        </td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-primary button-margin btn-xs"
-            ngxClipboard
-            [cbContent]="'https://hostm.io/s/' + url.shortUrl"
-          >
-            Copy Url
-          </button>
-        </td>
-
-        <td>
-          <button
-            type="button"
-            class="btn btn-danger button-margin btn-xs"
-            (click)="deleteTask(url._id)"
-          >
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
 
   <div class="card text-center" *ngFor="let url of urls | reverse">
     <h5 class="card-header">
