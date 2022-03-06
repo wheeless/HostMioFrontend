@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from 'ngx-clipboard';
 import { ReversePipe } from './reverse.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddTaskComponent,
     TaskDetailsComponent,
     ReversePipe,
+    ScrollTopComponent,
     
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule, JwPaginationModule],
   providers: [],
   bootstrap: [AppComponent],
 })

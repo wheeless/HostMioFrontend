@@ -1,5 +1,4 @@
 <div class="container">
-  <!-- <mat-spinner *ngIf="getTasks"></mat-spinner> -->
   <h2>URL List</h2>
   <button
     type="button"
@@ -22,9 +21,6 @@
       <div class="card-title" [ngClass]="{ limitTextHeight: isReadMore }">
         {{ url.longUrl }}
       </div>
-      <!-- <button type="button" (click)="showText()">
-        {{ isReadMore ? "Read More" : "Read Less" }}
-      </button> -->
       <p class="card-text">Link descriptions coming in v2 of the api</p>
       <button
         type="button"
@@ -45,3 +41,7 @@
     <br />
   </div>
 </div>
+<!-- <jw-pagination
+  [items]="urls"
+  (changePage)="onChangePage($event)"
+></jw-pagination> -->
