@@ -5,16 +5,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-redirect',
   templateUrl: './redirect.component.html',
-  styleUrls: ['./redirect.component.css']
+  styleUrls: ['./redirect.component.css'],
 })
 export class RedirectComponent implements OnInit {
-    
-  constructor(private route: ActivatedRoute) { }
-
+  constructor(private route: ActivatedRoute) {}
+  urlShort = '';
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
-      window.location.href = 'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
+      setTimeout(() => {
+        window.location.href =
+          'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
+      }, 3000);
+      this.urlShort = param.shortUrl;
     });
   }
-
 }
