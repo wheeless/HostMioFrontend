@@ -2,10 +2,22 @@
   position: fixed;
   bottom: 15px;
   right: 15px;
-  opacity: 0;
+  opacity: 0%;
   transition: all 0.2s ease-in-out;
 }
 .show-scrollTop {
   opacity: 1;
   transition: all 0.2s ease-in-out;
+}
+
+.scrollButton {
+  border-radius: 20px;
+  background-color: aqua;
+  opacity: 80%;
+  border: 0;
+  outline: none;
+}
+
+.fa-chevron-up {
+  opacity: 100%;
 }

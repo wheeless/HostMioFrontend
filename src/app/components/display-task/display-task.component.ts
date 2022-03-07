@@ -21,9 +21,9 @@ export class DisplayTaskComponent implements OnInit {
   //Creating a model to handle our new task inputs
   urls: URL[];
   pageOfItems: Array<any>;
-  transform(value) {
-    return value.slice().reverse();
-  }
+  // transform(value) {
+  //   return value.slice().reverse();
+  // }
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
@@ -40,7 +40,7 @@ export class DisplayTaskComponent implements OnInit {
   onChangePage(pageOfItems: Array<any>) {
     // update current page of items
     this.pageOfItems = pageOfItems;
-}
+  }
   // getTask(shortUrl: string): void {
   //   this.taskServer
   //     .getTask(shortUrl)

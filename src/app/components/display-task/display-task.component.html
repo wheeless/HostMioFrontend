@@ -2,7 +2,7 @@
   <h2>URL List</h2>
   <button
     type="button"
-    class="btn btn-info button-margin btn-lg btn-block"
+    class="btn btn-info button-margin btn-lg block view-long-url"
     (click)="showText()"
   >
     {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
@@ -19,7 +19,9 @@
     </h5>
     <div class="card-body">
       <div class="card-title" [ngClass]="{ limitTextHeight: isReadMore }">
-        {{ url.longUrl }}
+        <a href="{{ url.longUrl }}" target="_blank" rel="noopener noreferrer">{{
+          url.longUrl
+        }}</a>
       </div>
       <p class="card-text">Link descriptions coming in v2 of the api</p>
       <button
