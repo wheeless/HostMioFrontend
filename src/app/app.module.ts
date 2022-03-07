@@ -24,6 +24,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { BackButtonDirective } from './services/back-button.directive';
+import { PricingComponent } from './components/pricing/pricing.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { BackButtonDirective } from './services/back-button.directive';
     HomeComponent,
     PagenotfoundComponent,
     BackButtonDirective,
+    PricingComponent,
+    FooterComponent,
     
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule, JwPaginationModule],

@@ -15,7 +15,7 @@ export class RedirectComponent implements OnInit {
       setTimeout(() => {
         window.location.href =
           'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
-      }, 3000);
+      }, 2000);
       this.urlShort = param.shortUrl;
     });
   }

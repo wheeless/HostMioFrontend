@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
+import { Injectable } from '@angular/core';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 
 //manully imported
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +16,7 @@ import { TaskDetailsComponent } from './components/task-details/task-details.com
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { PricingComponent } from './components/pricing/pricing.component';
 
 const routes: Routes = [
   {
@@ -31,23 +37,27 @@ const routes: Routes = [
     component: AddTaskComponent,
   },
   {
+    path: 'pricing',
+    component: PricingComponent,
+  },
+  {
     path: 'edit/:id',
     component: TaskDetailsComponent,
   },
-  { 
-    path: '404', pathMatch: 'full', 
-    component: PagenotfoundComponent 
+  {
+    path: '404',
+    pathMatch: 'full',
+    component: PagenotfoundComponent,
   },
   {
     path: ':shortUrl',
     component: RedirectComponent,
   },
-  { 
-    path: '**', pathMatch: 'full', 
-    component: PagenotfoundComponent 
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PagenotfoundComponent,
   },
-
-  
 ];
 // @Injectable({
 //   providedIn: 'root'
