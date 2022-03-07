@@ -7,11 +7,12 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  domain = 'https://api.hostmonkey.io/api/v1/links';
-  tempdomain = 'http://localhost:46001/api/v1/links';
+  APIHost = 'https://api.hostmonkey.io';
+  APIv1Path = '/api/v1/links'
+  devDomain = 'http://localhost:46001/api/v1/links';
 
   getTasks(): Observable<URL[]> {
-    return this.http.get<URL[]>(this.domain);
+    return this.http.get<URL[]>(this.APIHost + this.APIv1Path);
   }
 
   // getTask(shortUrl: string): Observable<URL> {
@@ -19,19 +20,19 @@ export class TaskService {
   // }
   
   getTask(shortUrl: string): Observable<URL> {
-    return this.http.get<URL>(this.domain + '/' + shortUrl);
+    return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl);
   }
 
   addTask(url: URL): Observable<URL> {
-    return this.http.post<URL>(this.domain + '/', url);
+    return this.http.post<URL>(this.APIHost + this.APIv1Path, url);
   }
 
   deleteTask(id: number): Observable<URL> {
-    return this.http.delete<URL>(this.domain + '/' + id);
+    return this.http.delete<URL>(this.APIHost + this.APIv1Path + id);
   }
 
   editTask(url: URL): Observable<URL> {
-    return this.http.put<URL>(this.domain + '/' + url._id, url);
+    return this.http.put<URL>(this.APIHost + '/' + url._id, url);
   }
 
   constructor(private http: HttpClient) {}
