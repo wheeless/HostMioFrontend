@@ -13,11 +13,6 @@
 .scrollButton {
   border-radius: 20px;
   background-color: aqua;
-  opacity: 80%;
   border: 0;
   outline: none;
-}
-
-.fa-chevron-up {
-  opacity: 100%;
 }

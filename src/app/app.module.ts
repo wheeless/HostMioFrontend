@@ -20,6 +20,7 @@ import { ReversePipe } from './reverse.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     TaskDetailsComponent,
     ReversePipe,
     ScrollTopComponent,
+    RedirectComponent,
     
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule, JwPaginationModule],

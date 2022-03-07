@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DisplayTaskComponent } from './components/display-task/display-task.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: TaskDetailsComponent,
+  },
+  {
+    path: ':shortUrl',
+    component: RedirectComponent,
   },
   // {
   //   path: '/:shortURL',
