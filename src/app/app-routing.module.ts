@@ -25,17 +25,14 @@ const routes: Routes = [
     component: AddTaskComponent,
   },
   {
-    path: 'detail/:id',
+    path: 'edit/:id',
     component: TaskDetailsComponent,
   },
   {
     path: ':shortUrl',
     component: RedirectComponent,
   },
-  // {
-  //   path: '/:shortURL',
-  //   loadChildren: () => new Promise( () => { if(window.location.href.match(/external-link/) ) window.location.href = 'https://external-link.com/'; } )
-  // },
+
   
 ];
 // @Injectable({

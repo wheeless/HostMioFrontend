@@ -12,6 +12,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   selector: 'app-display-task',
   templateUrl: './display-task.component.html',
   styleUrls: ['./display-task.component.css'],
+  styles: [`
+  :host .alert-custom {
+    color: white;
+    background-color: orange;
+    border-color: #800040;
+  }
+`]
 })
 
 

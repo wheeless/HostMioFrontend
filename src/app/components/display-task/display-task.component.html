@@ -1,12 +1,9 @@
 <div class="container">
-  <h1 style="color: red" class="center">
-    NOTICE! All links can now be accessed through https://hostm.io/<code
-      >whateverTheLinkIs</code
-    >
-  </h1>
-  <h2 class="center">
-    All old format links with "/s/" will still operate as normal.
-  </h2>
+  <ngb-alert type="custom" [dismissible]="false">
+    <strong>NOTICE!</strong> All links can now be accessed through
+    https://hostm.io/<code>whateverTheLinkIs</code>. All old format links with
+    "/s/" will still operate as normal.
+  </ngb-alert>
   <h2>URL List</h2>
   <button
     type="button"
@@ -16,12 +13,9 @@
     {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
   </button>
 
-  <div class="card text-center" *ngFor="let url of urls | reverse">
+  <div class="card text-center urlCards" *ngFor="let url of urls | reverse">
     <h5 class="card-header">
-      <a
-        href="https://hostm.io/{{ url.shortUrl }}"
-        target="_blank"
-        rel="noopener noreferrer"
+      <a href="/{{ url.shortUrl }}" target="_blank" rel="noopener noreferrer"
         >https://hostm.io/{{ url.shortUrl }}</a
       >
     </h5>
@@ -47,8 +41,12 @@
       >
         Delete
       </button>
+      <!-- <a href="/edit/{{ url._id }}"
+        ><button type="button" class="btn btn-danger button-margin btn-xs">
+          Edit
+        </button></a
+      > -->
     </div>
-    <br />
   </div>
 </div>
 <!-- <jw-pagination

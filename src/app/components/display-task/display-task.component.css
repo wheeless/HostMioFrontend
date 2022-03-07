@@ -25,3 +25,15 @@ table {
 .center {
   text-align: center;
 }
+
+.red {
+  color: red;
+}
+
+.view-long-url {
+  margin-bottom: 0.5rem;
+}
+
+.urlCards {
+  margin-bottom: 1rem;
+}
