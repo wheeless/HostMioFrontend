@@ -9,12 +9,18 @@ import { DisplayTaskComponent } from './components/display-task/display-task.com
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { HomeComponent } from './components/home/home.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: '/urls',
     pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
   },
   {
     path: 'urls',
@@ -28,9 +34,17 @@ const routes: Routes = [
     path: 'edit/:id',
     component: TaskDetailsComponent,
   },
+  { 
+    path: '404', pathMatch: 'full', 
+    component: PagenotfoundComponent 
+  },
   {
     path: ':shortUrl',
     component: RedirectComponent,
+  },
+  { 
+    path: '**', pathMatch: 'full', 
+    component: PagenotfoundComponent 
   },
 
   

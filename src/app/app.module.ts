@@ -21,6 +21,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { HomeComponent } from './components/home/home.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { BackButtonDirective } from './services/back-button.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     ReversePipe,
     ScrollTopComponent,
     RedirectComponent,
+    HomeComponent,
+    PagenotfoundComponent,
+    BackButtonDirective,
     
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule, JwPaginationModule],
