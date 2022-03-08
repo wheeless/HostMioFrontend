@@ -5,7 +5,9 @@ td {
 table {
   table-layout: fixed;
 }
-
+.row {
+  --bs-gutter-x: 0rem;
+}
 .limitTextHeight {
   height: 20px;
   overflow: hidden;

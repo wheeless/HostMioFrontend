@@ -7,26 +7,24 @@ import { from } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 //import { TaskModule } from '../../modules/task/task.module';
 
-
 @Component({
   selector: 'app-display-task',
   templateUrl: './display-task.component.html',
   styleUrls: ['./display-task.component.css'],
-  styles: [`
-  :host .alert-custom {
-    color: white;
-    background-color: orange;
-    border-color: #800040;
-  }
-`]
+  styles: [
+    `
+      :host .alert-custom {
+        color: white;
+        background-color: orange;
+        border-color: #800040;
+      }
+    `,
+  ],
 })
-
-
-
 export class DisplayTaskComponent implements OnInit {
-  
   //Creating a model to handle our new task inputs
   urls: URL[];
+  url: URL = new URL();
   pageOfItems: Array<any>;
   // transform(value) {
   //   return value.slice().reverse();
@@ -36,12 +34,17 @@ export class DisplayTaskComponent implements OnInit {
   }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
-    
   }
-  isReadMore = true
+  addTask() {
+    this.taskServer
+      .addTask(this.url)
+      .subscribe((u) => window.location.reload());
+    // window.location.reload();
+  }
+  isReadMore = true;
 
   showText() {
-     this.isReadMore = !this.isReadMore
+    this.isReadMore = !this.isReadMore;
   }
 
   onChangePage(pageOfItems: Array<any>) {
@@ -67,6 +70,6 @@ export class DisplayTaskComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.getTasks();  
+    this.getTasks();
   }
 }
