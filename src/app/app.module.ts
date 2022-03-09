@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { TaskService } from '../app/services/task.service';
 //import { TaskModule } from './modules/task/task.module';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 //import { EditTaskComponent } from './components/edit-task/edit-task.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayTaskComponent } from './components/display-task/display-task.component';
 import { TaskDetailsComponent } from './components/task-details/task-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,8 @@ import { BackButtonDirective } from './services/back-button.directive';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FeaturesComponent } from './components/features/features.component';
+import { WhyPageComponent } from './components/why-page/why-page.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,23 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PricingComponent,
     FooterComponent,
     NavbarComponent,
-    
+    FeaturesComponent,
+    WhyPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, BrowserAnimationsModule, MatSliderModule, MatProgressSpinnerModule, MatProgressBarModule, ClipboardModule, NgbModule, JwPaginationModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    ClipboardModule,
+    NgbModule,
+    JwPaginationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

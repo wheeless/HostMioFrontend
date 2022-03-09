@@ -17,6 +17,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { PricingComponent } from './components/pricing/pricing.component';
+import { FeaturesComponent } from './components/features/features.component';
+import { WhyPageComponent } from './components/why-page/why-page.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,14 @@ const routes: Routes = [
   {
     path: 'pricing',
     component: PricingComponent,
+  },
+  {
+    path: 'features',
+    component: FeaturesComponent,
+  },
+  {
+    path: 'why-hostmio',
+    component: WhyPageComponent,
   },
   {
     path: 'edit/:id',

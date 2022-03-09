@@ -1,13 +1,13 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark myNav">
   <div class="container">
-    <a class="navbar-brand" href="/urls"
+    <a class="navbar-brand" [routerLink]="['/urls']"
       ><img
         src="/assets/images/android-chrome-512x512.png"
         width="30"
         height="30"
         class="d-inline-block align-top"
         alt=""
-      />HostMio by HostMonkey</a
+      />HostMio <span class="hide-on-small">by Avernix Technologies</span></a
     >
     <button
       class="navbar-toggler d-lg-none"
@@ -27,19 +27,44 @@
     >
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/urls">URLs</a>
+          <a
+            class="nav-link"
+            aria-current="page"
+            [routerLink]="['/urls']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >URLs</a
+          >
         </li>
         <!-- <li class="nav-item">
             <a class="nav-link" href="/add">Add URL</a>
           </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="/pricing">Pricing</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/pricing']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Pricing</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#">Features</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/features']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Features</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/#">Why HostMio?</a>
+          <a
+            class="nav-link"
+            [routerLink]="['/why-hostmio']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Why HostMio?</a
+          >
         </li>
       </ul>
       <ul class="navbar-nav">

@@ -18,9 +18,9 @@
             id="longUrl"
             class="form-control"
             placeholder="https://example.com"
+            [(ngModel)]="url.longUrl"
             pattern="^(http(s)?:\/\/)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$"
             oninvalid="this.setCustomValidity('Please match the requested format')"
-            [(ngModel)]="url.longUrl"
             [ngModelOptions]="{ standalone: true }"
             required
           />
@@ -34,7 +34,6 @@
             [(ngModel)]="url.shortUrl"
             [ngModelOptions]="{ standalone: true }"
           />
-
           <br />
           <button
             type="submit"
@@ -64,7 +63,7 @@
         >
           <h5 class="card-header">
             <a
-              href="/{{ url.shortUrl }}"
+              routerLink="/{{ url.shortUrl }}"
               target="_blank"
               rel="noopener noreferrer"
               >https://hostm.io/{{ url.shortUrl }}</a

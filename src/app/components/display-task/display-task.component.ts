@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL } from 'src/app/models/task';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 //import { TaskModule } from '../../modules/task/task.module';
@@ -26,6 +27,7 @@ export class DisplayTaskComponent implements OnInit {
   urls: URL[];
   url: URL = new URL();
   pageOfItems: Array<any>;
+  public fg: FormGroup;
   // transform(value) {
   //   return value.slice().reverse();
   // }
@@ -36,9 +38,7 @@ export class DisplayTaskComponent implements OnInit {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
   }
   addTask() {
-    this.taskServer
-      .addTask(this.url)
-      .subscribe((u) => window.location.reload());
+    this.taskServer.addTask(this.url).subscribe((u) => this.getTasks());
     // window.location.reload();
   }
   isReadMore = true;
@@ -57,8 +57,26 @@ export class DisplayTaskComponent implements OnInit {
   //     .subscribe((t) => this.router.navigate(['task']));
   // }
 
-  constructor(private taskServer: TaskService, private router: Router) {}
-
+  constructor(
+    private taskServer: TaskService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.fg = fb.group({
+      url: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
+          ),
+        ],
+      ],
+    });
+  }
+  get getUrl() {
+    return this.fg.controls;
+  }
   // getTasks() {
   //   //when callthing this you need to
   //   //specify what data types we expect to get from this route.
