@@ -1,7 +1,10 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { partitionArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { parseMetadata } from '@angular/localize/src/utils';
 import { ActivatedRoute, Router } from '@angular/router';
+import { URL } from '../../models/task';
+
 @Component({
   selector: 'app-redirect',
   templateUrl: './redirect.component.html',
@@ -15,7 +18,7 @@ export class RedirectComponent implements OnInit {
       setTimeout(() => {
         window.location.href =
           'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
-      }, 2000);
+      }, 3500);
       this.urlShort = param.shortUrl;
     });
   }

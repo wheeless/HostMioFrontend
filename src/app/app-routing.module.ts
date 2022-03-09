@@ -45,18 +45,17 @@ const routes: Routes = [
     component: TaskDetailsComponent,
   },
   {
-    path: '404',
-    pathMatch: 'full',
-    component: PagenotfoundComponent,
-  },
-  {
     path: ':shortUrl',
     component: RedirectComponent,
   },
   {
-    path: '**',
-    pathMatch: 'full',
+    path: '404',
+    // pathMatch: 'full',
     component: PagenotfoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '/404',
   },
 ];
 // @Injectable({
