@@ -39,6 +39,8 @@ export class DisplayTaskComponent implements OnInit {
   }
   addTask() {
     this.taskServer.addTask(this.url).subscribe((u) => this.getTasks());
+    this.url.longUrl = '';
+    this.url.shortUrl = '';
     // window.location.reload();
   }
   isReadMore = true;
