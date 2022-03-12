@@ -42,7 +42,7 @@ export class DisplayTaskComponent implements OnInit {
 
   reloadLinks(): void {
     this.getTasks();
-    this.toast.info('Links Reloaded');
+    this.infoToast('Links Reloaded');
   }
 
   sendForAdd() {
@@ -61,13 +61,32 @@ export class DisplayTaskComponent implements OnInit {
   }
 
   successToast(message) {
-    this.toast.success(message);
+    this.toast.success(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
+  }
+  infoToast(message) {
+    this.toast.info(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
   }
   failToast(message) {
-    this.toast.error(message);
+    this.toast.error(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
   }
   warnToast(message) {
-    this.toast.warning(message);
+    this.toast.warning(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
   }
   isReadMore = true;
 
