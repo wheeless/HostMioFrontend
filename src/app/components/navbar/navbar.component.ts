@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PwaService } from 'src/app/services/pwa.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   title = 'HostMio';
   public isCollapsed = true;
-  constructor() {}
-
+  constructor(public Pwa: PwaService) {}
+  installPwa(): void {
+    this.Pwa.promptEvent.prompt();
+  }
   ngOnInit(): void {}
 }

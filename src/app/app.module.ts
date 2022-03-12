@@ -30,6 +30,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { WhyPageComponent } from './components/why-page/why-page.component';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { PwaService } from './services/pwa.service';
 
 @NgModule({
   declarations: [
@@ -63,8 +66,14 @@ import { HotToastModule } from '@ngneat/hot-toast';
     NgbModule,
     JwPaginationModule,
     HotToastModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
-  providers: [],
+  providers: [PwaService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
