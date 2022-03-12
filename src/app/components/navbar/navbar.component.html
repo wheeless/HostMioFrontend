@@ -132,7 +132,11 @@
             </li>
             <li><a class="dropdown-item" href="#">Help Center</a></li>
             <li><a class="dropdown-item" href="#">Resources</a></li>
-            <li (click)="installPwa()">Install App</li>
+            <li>
+              <button *ngIf="Pwa.promptEvent" (click)="installPwa()">
+                Install
+              </button>
+            </li>
             <li>
               <hr class="dropdown-divider" />
             </li>
