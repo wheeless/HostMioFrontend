@@ -4,16 +4,16 @@ import { SwUpdate } from '@angular/service-worker';
 export class PwaService {
   promptEvent: any;
   constructor(private swUpdate: SwUpdate) {
-    swUpdate.available.subscribe((event) => {
-      if (askUserToUpdate()) {
-        window.location.reload();
-      }
-    });
-    window.addEventListener('beforeinstallprompt', (event) => {
-      this.promptEvent = event;
-    });
+    // swUpdate.available.subscribe((event) => {
+    //   if (askUserToUpdate()) {
+    //     window.location.reload();
+    //   }
+    // });
+    // window.addEventListener('beforeinstallprompt', (event) => {
+    //   this.promptEvent = event;
+    // });
   }
 }
-function askUserToUpdate() {
-  return confirm('New version available. Load New Version?');
-}
+// function askUserToUpdate() {
+//   return confirm('New version available. Load New Version?');
+// }
