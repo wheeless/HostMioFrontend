@@ -6,6 +6,7 @@ import { TaskService } from '../../services/task.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 //import { TaskModule } from '../../modules/task/task.module';
 
 @Component({
@@ -36,12 +37,37 @@ export class DisplayTaskComponent implements OnInit {
   }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
+    this.failToast('Link Deleted');
   }
+
+  reloadLinks(): void {
+    this.getTasks();
+    this.toast.info('Links Reloaded');
+  }
+
+  sendForAdd() {
+    if (this.url.longUrl === undefined || this.url.longUrl === '') {
+      this.warnToast('Please enter a valid URL');
+    } else {
+      this.addTask();
+    }
+  }
+
   addTask() {
     this.taskServer.addTask(this.url).subscribe((u) => this.getTasks());
+    this.successToast('Link Added');
     this.url.longUrl = '';
     this.url.shortUrl = '';
-    // window.location.reload();
+  }
+
+  successToast(message) {
+    this.toast.success(message);
+  }
+  failToast(message) {
+    this.toast.error(message);
+  }
+  warnToast(message) {
+    this.toast.warning(message);
   }
   isReadMore = true;
 
@@ -62,23 +88,12 @@ export class DisplayTaskComponent implements OnInit {
   constructor(
     private taskServer: TaskService,
     private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.fg = fb.group({
-      url: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
-          ),
-        ],
-      ],
-    });
-  }
-  get getUrl() {
-    return this.fg.controls;
-  }
+    private fb: FormBuilder,
+    private toast: HotToastService
+  ) {}
+  // get getUrl() {
+  //   return this.fg.controls;
+  // }
   // getTasks() {
   //   //when callthing this you need to
   //   //specify what data types we expect to get from this route.

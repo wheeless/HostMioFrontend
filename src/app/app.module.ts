@@ -29,6 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { WhyPageComponent } from './components/why-page/why-page.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { WhyPageComponent } from './components/why-page/why-page.component';
     ClipboardModule,
     NgbModule,
     JwPaginationModule,
+    HotToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
