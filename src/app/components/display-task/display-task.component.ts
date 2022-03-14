@@ -29,15 +29,17 @@ export class DisplayTaskComponent implements OnInit {
   url: URL = new URL();
   pageOfItems: Array<any>;
   public fg: FormGroup;
+  isCopied;
   // transform(value) {
   //   return value.slice().reverse();
   // }
+
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
-    this.failToast('Link Deleted');
+    this.warnToast('Link Deleted');
   }
 
   reloadLinks(): void {

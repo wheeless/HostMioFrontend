@@ -91,6 +91,8 @@
               type="button"
               class="btn btn-primary button-margin btn-xs"
               ngxClipboard
+              (cbOnSuccess)="this.successToast('Link Copied')"
+              (cbOnError)="this.failToast('Error Copying Link')"
               [cbContent]="'https://hostm.io/' + url.shortUrl"
             >
               Copy Url

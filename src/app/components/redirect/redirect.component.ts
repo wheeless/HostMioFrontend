@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { partitionArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { parseMetadata } from '@angular/localize/src/utils';
@@ -13,12 +13,18 @@ import { URL } from '../../models/task';
 export class RedirectComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
   urlShort = '';
+  // domainCheck;
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
+      // this.domainCheck =
+      //   'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
+      // if (this.domainCheck === (this.statusCode === NotFound)) {
+      // } else {
+      // }
       setTimeout(() => {
         window.location.href =
           'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
-      }, 1500);
+      }, 1000);
       this.urlShort = param.shortUrl;
     });
   }
