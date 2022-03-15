@@ -21,10 +21,12 @@ export class RedirectComponent implements OnInit {
       // if (this.domainCheck === (this.statusCode === NotFound)) {
       // } else {
       // }
-      setTimeout(() => {
-        window.location.href =
-          'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
-      }, 1000);
+      window.location.href =
+        'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
+      // setTimeout(() => {
+      //   window.location.href =
+      //     'https://api.hostmonkey.io/api/v1/links/' + param.shortUrl;
+      // }, 0);
       this.urlShort = param.shortUrl;
     });
   }

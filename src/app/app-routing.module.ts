@@ -8,7 +8,6 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 
-//manully imported
 import { RouterModule, Routes } from '@angular/router';
 import { DisplayTaskComponent } from './components/display-task/display-task.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';

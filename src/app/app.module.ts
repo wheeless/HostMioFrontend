@@ -23,7 +23,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-import { BackButtonDirective } from './services/back-button.directive';
+import { BackButtonDirective } from './directives/back-button.directive';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
