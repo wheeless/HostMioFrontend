@@ -66,17 +66,21 @@ const routes: Routes = [
     component: DisclaimerComponent,
   },
   {
-    path: 'edit/:id',
-    component: TaskDetailsComponent,
+    path: 'redirect',
+    component: RedirectComponent,
   },
   {
-    path: ':shortUrl',
-    component: RedirectComponent,
+    path: 'edit/:id',
+    component: TaskDetailsComponent,
   },
   {
     path: '404',
     // pathMatch: 'full',
     component: PagenotfoundComponent,
+  },
+  {
+    path: ':shortUrl',
+    component: RedirectComponent,
   },
   {
     path: '**',
