@@ -31,9 +31,33 @@
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Locations</a></li>
-          <li><a class="text-muted" href="#">Privacy</a></li>
-          <li><a class="text-muted" href="#">Terms</a></li>
+          <li>
+            <a
+              class="text-muted"
+              [routerLink]="['/disclaimer']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Disclaimer</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-muted"
+              [routerLink]="['/policy']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Privacy</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-muted"
+              [routerLink]="['/tos']"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Terms</a
+            >
+          </li>
         </ul>
       </div>
     </div>

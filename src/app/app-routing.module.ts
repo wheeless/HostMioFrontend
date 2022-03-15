@@ -19,6 +19,9 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { PricingComponent } from './components/pricing/pricing.component';
 import { FeaturesComponent } from './components/features/features.component';
 import { WhyPageComponent } from './components/why-page/why-page.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TOSComponent } from './components/tos/tos.component';
+import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 
 const routes: Routes = [
   {
@@ -49,6 +52,18 @@ const routes: Routes = [
   {
     path: 'why-hostmio',
     component: WhyPageComponent,
+  },
+  {
+    path: 'policy',
+    component: PrivacyPolicyComponent,
+  },
+  {
+    path: 'tos',
+    component: TOSComponent,
+  },
+  {
+    path: 'disclaimer',
+    component: DisclaimerComponent,
   },
   {
     path: 'edit/:id',

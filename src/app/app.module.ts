@@ -33,6 +33,9 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PwaService } from './services/pwa.service';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TOSComponent } from './components/tos/tos.component';
+import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { PwaService } from './services/pwa.service';
     NavbarComponent,
     FeaturesComponent,
     WhyPageComponent,
+    PrivacyPolicyComponent,
+    TOSComponent,
+    DisclaimerComponent,
   ],
   imports: [
     BrowserModule,
