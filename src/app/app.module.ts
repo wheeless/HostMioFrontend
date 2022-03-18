@@ -19,7 +19,6 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { ReversePipe } from './reverse.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScrollTopComponent } from './components/scroll-top/scroll-top.component';
-import { JwPaginationModule } from 'jw-angular-pagination';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
@@ -70,7 +69,6 @@ import { DisclaimerComponent } from './components/disclaimer/disclaimer.componen
     MatProgressBarModule,
     ClipboardModule,
     NgbModule,
-    JwPaginationModule,
     HotToastModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
