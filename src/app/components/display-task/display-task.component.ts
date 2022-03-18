@@ -30,9 +30,6 @@ export class DisplayTaskComponent implements OnInit {
   pageOfItems: Array<any>;
   public fg: FormGroup;
   isCopied;
-  // transform(value) {
-  //   return value.slice().reverse();
-  // }
 
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
