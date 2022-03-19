@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -35,6 +36,27 @@ import { PwaService } from './services/pwa.service';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { TOSComponent } from './components/tos/tos.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
+import * as Sentry from '@sentry/angular';
+import { BrowserTracing } from '@sentry/tracing';
+import { Router } from '@angular/router';
+
+Sentry.init({
+  dsn: 'https://5f2c4369c4e04972b21a7d23537ec658@o1171884.ingest.sentry.io/6266816',
+  integrations: [
+    // Registers and configures the Tracing integration,
+    // which automatically instruments your application to monitor its
+    // performance, including custom Angular routing instrumentation
+    new BrowserTracing({
+      tracingOrigins: ['localhost', 'https://hostm.io/'],
+      routingInstrumentation: Sentry.routingInstrumentation,
+    }),
+  ],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 @NgModule({
   declarations: [
@@ -77,7 +99,25 @@ import { DisclaimerComponent } from './components/disclaimer/disclaimer.componen
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-  providers: [PwaService],
+  providers: [
+    PwaService,
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: true,
+      }),
+    },
+    {
+      provide: Sentry.TraceService,
+      deps: [Router],
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => () => {},
+      deps: [Sentry.TraceService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
