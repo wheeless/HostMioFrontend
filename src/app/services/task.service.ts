@@ -7,8 +7,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  // APIHost = 'https://api.hostmonkey.io';
-  APIHost = 'http://localhost:46001';
+  APIHost = 'https://api.hostmonkey.io';
+  // APIHost = 'http://localhost:46001';
 
   APIv1Path = '/api/v1/links/';
   devDomain = 'http://localhost:46001/api/v1/links';
