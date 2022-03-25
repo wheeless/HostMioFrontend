@@ -69,7 +69,7 @@ const routes: Routes = [
     component: RedirectComponent,
   },
   {
-    path: 'edit/:shortUrl',
+    path: 'details/:shortUrl',
     component: TaskDetailsComponent,
   },
   {
