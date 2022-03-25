@@ -99,10 +99,10 @@
             </button>
             <button
               type="button"
-              class="btn btn-danger button-margin btn-xs"
-              (click)="deleteTask(url._id)"
+              class="btn btn-info button-margin btn-xs"
+              [routerLink]="['/edit', url.shortUrl]"
             >
-              Delete
+              Details
             </button>
             <!-- <a href="/edit/{{ url._id }}"
         ><button type="button" class="btn btn-danger button-margin btn-xs">

@@ -7,7 +7,9 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  APIHost = 'https://api.hostmonkey.io';
+  // APIHost = 'https://api.hostmonkey.io';
+  APIHost = 'http://localhost:46001';
+
   APIv1Path = '/api/v1/links/';
   devDomain = 'http://localhost:46001/api/v1/links';
 
@@ -19,9 +21,9 @@ export class TaskService {
   //   return this.http.get<URL>(this.domain + '/' + shortUrl);
   // }
 
-  // getTask(shortUrl: string): Observable<URL> {
-  //   return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl);
-  // }
+  getTask(shortUrl: string): Observable<URL> {
+    return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl);
+  }
 
   addTask(url: URL): Observable<URL> {
     return this.http.post<URL>(this.APIHost + this.APIv1Path, url);

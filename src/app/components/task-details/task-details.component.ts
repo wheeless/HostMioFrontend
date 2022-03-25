@@ -10,16 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TaskDetailsComponent implements OnInit {
   detailTask: URL = new URL();
+  // urls: URL = new URL();
   tasks: URL[];
 
   getTasks(): void {
     this.taskService.getTasks().subscribe((t) => (this.tasks = t));
   }
 
-  deleteTask(id: number): void {
+  deleteTask(_id: number): void {
     this.taskService
-      .deleteTask(id)
-      .subscribe((t) => this.router.navigate(['task']));
+      .deleteTask(_id)
+      .subscribe((t) => this.router.navigate(['urls']));
   }
 
   constructor(
@@ -29,10 +30,10 @@ export class TaskDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.route.params.subscribe((param) => {
-    //   this.taskService
-    //     .getTask(+param.id)
-    //     .subscribe((t) => (this.detailTask = t));
-    // });
+    this.route.params.subscribe((param) => {
+      this.taskService
+        .getTask(param.shortUrl)
+        .subscribe((t) => (this.detailTask = t));
+    });
   }
 }

@@ -1,27 +1,24 @@
-<!-- <div class="container">
-  <h2>Task Details</h2>
+<div class="container">
+  <h2>Link Details</h2>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Task Name</th>
-        <th>Time To Complete</th>
-        <th>Completed?</th>
-        <th>
-          Delete Task?
-          <div class="text-danger">(WARNING, CANNOT BE UNDONE)</div>
-        </th>
+        <th>Url Code</th>
+        <th>Long Url</th>
+        <th>Expires</th>
+        <th>Delete Url?</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>{{ detailTask.taskName }}</td>
-        <td>{{ detailTask.taskDue }}</td>
-        <td>{{ detailTask.completedTask }}</td>
+        <td>{{ detailTask.shortUrl }}</td>
+        <td>{{ detailTask.longUrl }}</td>
+        <td>{{ detailTask.expireAt }}</td>
         <td>
           <button
             type="button"
             class="btn btn-danger btn-xs"
-            (click)="deleteTask(url._id)"
+            (click)="deleteTask(detailTask._id)"
           >
             Delete
           </button>
@@ -29,5 +26,4 @@
       </tr>
     </tbody>
   </table>
-</div> -->
-<p>it works</p>
+</div>

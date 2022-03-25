@@ -34,6 +34,14 @@ export class DisplayTaskComponent implements OnInit {
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
+  // getTask(shortUrl: string): void {
+  //   this.taskServer.getTask(shortUrl).subscribe((url) => (this.url = url));
+  // }
+  // getTask(shortUrl: string): void {
+  //   this.taskServer
+  //     .getTask(shortUrl)
+  //     .subscribe((t) => this.router.navigate(['task']));
+  // }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
     this.warnToast('Link Deleted');
@@ -97,11 +105,6 @@ export class DisplayTaskComponent implements OnInit {
     // update current page of items
     this.pageOfItems = pageOfItems;
   }
-  // getTask(shortUrl: string): void {
-  //   this.taskServer
-  //     .getTask(shortUrl)
-  //     .subscribe((t) => this.router.navigate(['task']));
-  // }
 
   constructor(
     private taskServer: TaskService,
