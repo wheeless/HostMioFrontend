@@ -14,7 +14,7 @@ export class RedirectService {
   APIv1Path = '/api/v1/links/';
   devDomain = 'http://localhost:46001/api/v1/links';
 
-  getTask(shortUrl: string): Observable<URL> {
+  getUrl(shortUrl: string): Observable<URL> {
     return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl);
   }
 

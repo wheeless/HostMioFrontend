@@ -23,12 +23,17 @@ export class RedirectComponent implements OnInit {
   // domainCheck;
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
-      this.redirectService.getTask(param.shortUrl).subscribe(
-        (u) => ((this.urlLong = u.longUrl), (window.location.href = u.longUrl)),
+      this.redirectService.getUrl(param.shortUrl).subscribe(
+        (u) => (
+          (this.urlLong = u.longUrl),
+          setTimeout(() => {
+            window.location.href = u.longUrl;
+          }, 1500)
+        )
+      ),
         (error) => {
           console.log(error);
-        }
-      );
+        };
     });
   }
 }
