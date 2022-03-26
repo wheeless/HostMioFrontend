@@ -2,6 +2,6 @@ export class URL {
   '_id': number;
   'longUrl': string;
   'shortUrl': string;
-  'expireAt': string;
+  'expireAt': Date;
   'date': string;
 }
