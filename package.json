@@ -30,7 +30,7 @@
     "@sentry/angular": "^6.18.2",
     "@sentry/tracing": "^6.18.2",
     "ngx-clipboard": "14.0.2",
-    "rxjs": "^6.6.3",
+    "rxjs": "^7.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
