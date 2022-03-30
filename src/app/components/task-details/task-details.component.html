@@ -6,7 +6,13 @@
         <th>Url Code</th>
         <th>Long Url</th>
         <th>Expires</th>
-        <th>Delete Url?</th>
+        <th
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Deleting Links has been temporarily disabled"
+        >
+          Delete*
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -15,11 +21,7 @@
         <td>{{ detailTask.longUrl }}</td>
         <td>{{ detailTask.expireAt }}</td>
         <td>
-          <button
-            type="button"
-            class="btn btn-danger btn-xs"
-            (click)="deleteTask(detailTask._id)"
-          >
+          <button type="button" class="btn btn-danger btn-xs disabled">
             Delete
           </button>
         </td>
