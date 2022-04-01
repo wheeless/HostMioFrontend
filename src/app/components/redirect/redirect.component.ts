@@ -24,10 +24,10 @@ export class RedirectComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
       this.redirectService.getUrl(param.shortUrl).subscribe(
-        (u) => (
-          (this.urlLong = u.longUrl),
+        (link) => (
+          (this.urlLong = link.longUrl),
           setTimeout(() => {
-            window.location.href = u.longUrl;
+            window.location.href = link.longUrl;
           }, 1500)
         )
       ),
