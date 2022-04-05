@@ -51,19 +51,20 @@ Sentry.init({
       routingInstrumentation: Sentry.routingInstrumentation,
     }),
   ],
-  beforeSend(event, hint) {
-    // Check if it is an exception, and if so, show the report dialog
-    if (event.exception) {
-      Sentry.showReportDialog({
-        eventId: event.event_id,
-        title: "It looks like we're having issues",
-        subtitle: 'Our team has been notified.',
-        subtitle2:
-          "If you'd like to help us fix this, please share the following information with our support team. If it is a 404 related; you do not need to fill out this form unless you know the page should exist.",
-      });
-    }
-    return event;
-  },
+
+  // beforeSend(event, hint) {
+  //   // Check if it is an exception, and if so, show the report dialog
+  //   if (event.exception) {
+  //     Sentry.showReportDialog({
+  //       eventId: event.event_id,
+  //       title: "It looks like we're having issues",
+  //       subtitle: 'Our team has been notified.',
+  //       subtitle2:
+  //         "If you'd like to help us fix this, please share the following information with our support team. If it is a 404 related; you do not need to fill out this form unless you know the page should exist.",
+  //     });
+  //   }
+  //   return event;
+  // },
 
   // Set tracesSampleRate to 1.0 to capture 100%
   // of transactions for performance monitoring.

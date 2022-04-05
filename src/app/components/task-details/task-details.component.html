@@ -6,6 +6,7 @@
         <th>Url Code</th>
         <th>Long Url</th>
         <th>Expires</th>
+        <th>Refresh</th>
         <th
           data-toggle="tooltip"
           data-placement="top"
@@ -20,6 +21,15 @@
         <td>{{ detailTask.shortUrl }}</td>
         <td>{{ detailTask.longUrl }}</td>
         <td>{{ detailTask.expireAt }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-info btn-xs"
+            (click)="patchExpireDate(detailTask.shortUrl)"
+          >
+            Refresh
+          </button>
+        </td>
         <td>
           <button type="button" class="btn btn-danger btn-xs disabled">
             Delete

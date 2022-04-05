@@ -37,5 +37,11 @@ export class TaskService {
     return this.http.put<URL>(this.APIHost + '/' + url._id, url);
   }
 
+  patchExpireDate(shortUrl: string): Observable<URL> {
+    return this.http.patch<URL>(
+      this.APIHost + this.APIv1Path + shortUrl + '/expire',
+      URL
+    );
+  }
   constructor(private http: HttpClient) {}
 }

@@ -18,6 +18,18 @@ export class TaskDetailsComponent implements OnInit {
     this.taskService.getTasks().subscribe((t) => (this.tasks = t));
   }
 
+  patchExpireDate(shortUrl: string): void {
+    this.taskService.patchExpireDate(shortUrl).subscribe(
+      (url) => {
+        this.detailTask = url;
+        this.infoToast('Expire date updated');
+      },
+      (error) => {
+        this.failToast('Error updating expire date');
+      }
+    );
+  }
+
   deleteTask(_id: number): void {
     this.taskService
       .deleteTask(_id)
