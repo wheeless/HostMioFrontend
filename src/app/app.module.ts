@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { APP_INITIALIZER } from '@angular/core';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -114,6 +114,7 @@ Sentry.init({
     }),
   ],
   providers: [
+    Title,
     PwaService,
     {
       provide: ErrorHandler,

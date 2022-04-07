@@ -22,7 +22,7 @@ export class TaskDetailsComponent implements OnInit {
     this.taskService.patchExpireDate(shortUrl).subscribe(
       (url) => {
         this.detailTask = url;
-        this.infoToast('Expire date updated');
+        this.successToast('Expire date refreshed');
       },
       (error) => {
         this.failToast('Error updating expire date');

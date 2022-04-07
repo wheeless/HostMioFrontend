@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { parseMetadata } from '@angular/localize/src/utils';
 import { ActivatedRoute, Router } from '@angular/router';
 import { URL } from '../../models/task';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-redirect',
@@ -17,6 +18,7 @@ export class RedirectComponent implements OnInit {
     private http: HttpClient,
     private redirectService: RedirectService
   ) {}
+
   urls: URL = new URL();
   urlLong = '';
   // URL = 'https://api.hostmonkey.io/api/v1/links/';

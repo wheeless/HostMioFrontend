@@ -35,51 +35,87 @@ const routes: Routes = [
   {
     path: 'urls',
     component: DisplayTaskComponent,
+    data: {
+      title: 'Links',
+    },
   },
   {
     path: 'add',
     component: AddTaskComponent,
+    data: {
+      title: 'Add Link',
+    },
   },
   {
     path: 'pricing',
     component: PricingComponent,
+    data: {
+      title: 'Pricing',
+    },
   },
   {
     path: 'features',
     component: FeaturesComponent,
+    data: {
+      title: 'Features',
+    },
   },
   {
     path: 'why-hostmio',
     component: WhyPageComponent,
+    data: {
+      title: 'Why HostMio?',
+    },
   },
   {
     path: 'policy',
     component: PrivacyPolicyComponent,
+    data: {
+      title: 'Privacy Policy',
+    },
   },
   {
     path: 'tos',
     component: TOSComponent,
+    data: {
+      title: 'Terms of Service',
+    },
   },
   {
     path: 'disclaimer',
     component: DisclaimerComponent,
+    data: {
+      title: 'Disclaimer',
+    },
   },
   {
     path: 'redirect',
     component: RedirectComponent,
+    data: {
+      title: 'Redirecting...',
+    },
   },
   {
     path: 'details/:shortUrl',
     component: TaskDetailsComponent,
+    data: {
+      title: 'Link Details',
+    },
   },
   {
     path: '404',
     // pathMatch: 'full',
     component: PagenotfoundComponent,
+    data: {
+      title: 'Page Not Found',
+    },
   },
   {
     path: ':shortUrl',
     component: RedirectComponent,
+    data: {
+      title: 'Redirecting...',
+    },
   },
   {
     path: '**',
