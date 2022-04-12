@@ -7,6 +7,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
 import { Pipe, PipeTransform } from '@angular/core';
 import { HotToastService } from '@ngneat/hot-toast';
+
 //import { TaskModule } from '../../modules/task/task.module';
 
 @Component({
@@ -55,7 +56,11 @@ export class DisplayTaskComponent implements OnInit {
   sendForAdd() {
     if (this.url.longUrl === undefined || this.url.longUrl === '') {
       this.warnToast('Please enter a valid URL');
-    } else {
+    }
+    // } else if (error) {
+    //   this.warnToast(error);
+    // }
+    else {
       this.addTask();
     }
   }

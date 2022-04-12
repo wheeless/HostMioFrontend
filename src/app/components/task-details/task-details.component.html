@@ -1,6 +1,44 @@
 <div class="container">
   <h2>Link Details</h2>
-  <table class="table table-hover">
+  <div class="card text-center urlCards col-12 col-sm-12 col-md-12 col-lg-12">
+    <h5 class="card-header">
+      <a
+        routerLink="/{{ detailTask.shortUrl }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        >https://hostm.io/{{ detailTask.shortUrl }}</a
+      >
+    </h5>
+    <div class="card-body">
+      <div class="card-title">
+        <a
+          href="{{ detailTask.longUrl }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ detailTask.longUrl }}</a
+        >
+      </div>
+      <p class="card-text">Expires: {{ detailTask.expireAt }}</p>
+      <button
+        type="button"
+        class="btn btn-info btn-xs"
+        (click)="patchExpireDate(detailTask.shortUrl)"
+      >
+        Refresh
+      </button>
+      <button type="button" class="btn btn-danger btn-xs disabled">
+        Delete
+      </button>
+      <!-- <button
+      type="button"
+      class="btn btn-info button-margin btn-xs"
+      (click)="showText()"
+    >
+      {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
+    </button> -->
+    </div>
+  </div>
+  <!-- <table class="table table-hover">
     <thead>
       <tr>
         <th>Url Code</th>
@@ -37,5 +75,5 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
 </div>

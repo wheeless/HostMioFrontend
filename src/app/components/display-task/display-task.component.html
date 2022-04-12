@@ -20,15 +20,35 @@
             required
           />
           <br />
-          <label for="shortUrl">Short Url (Leave blank to randomize)</label>
-          <input
-            type="text"
-            id="shortUrl"
-            class="form-control"
-            placeholder="Enter Short URL"
-            [(ngModel)]="url.shortUrl"
-            [ngModelOptions]="{ standalone: true }"
-          />
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+              <label for="shortUrl">Short Url</label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon3"
+                  >https://hostm.io/</span
+                >
+                <input
+                  type="text"
+                  id="shortUrl"
+                  class="form-control"
+                  placeholder="leave blank for random back half"
+                  [(ngModel)]="url.shortUrl"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <br />
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+              <label for="expireDate">Expire Date</label>
+              <input
+                class="form-control"
+                type="datetime-local"
+                name="expireDate"
+                id="expireDate"
+                [(ngModel)]="url.expireAt"
+              />
+            </div>
+          </div>
           <br />
           <button
             type="submit"
@@ -38,24 +58,27 @@
           >
             Create Short Link
           </button>
+          <input type="hidden" id="timezone" name="timezone" value="-00:00" />
         </form>
       </div>
     </div>
   </div>
-  <button
-    type="button"
-    class="btn btn-primary button-margin btn-lg block view-long-url"
-    (click)="reloadLinks()"
-  >
-    Refresh Links
-  </button>
-  <button
-    type="button"
-    class="btn btn-info button-margin btn-lg block view-long-url"
-    (click)="showText()"
-  >
-    {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
-  </button>
+  <div class="row">
+    <button
+      type="button"
+      class="btn btn-primary button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
+      (click)="reloadLinks()"
+    >
+      Refresh Links
+    </button>
+    <button
+      type="button"
+      class="btn btn-info button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
+      (click)="showText()"
+    >
+      {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
+    </button>
+  </div>
   <div class="container g-0">
     <div class="row justify-content-around">
       <div class="card-deck row col-12 col-sm-12 col-md-12 col-lg-12">
@@ -98,6 +121,13 @@
             >
               Details
             </button>
+            <!-- <button
+              type="button"
+              class="btn btn-info button-margin btn-xs"
+              (click)="showText()"
+            >
+              {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
+            </button> -->
           </div>
         </div>
       </div>
