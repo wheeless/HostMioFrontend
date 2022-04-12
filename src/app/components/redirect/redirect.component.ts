@@ -21,8 +21,6 @@ export class RedirectComponent implements OnInit {
 
   urls: URL = new URL();
   urlLong = '';
-  // URL = 'https://api.hostmonkey.io/api/v1/links/';
-  // domainCheck;
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
       this.redirectService.getUrl(param.shortUrl).subscribe(
