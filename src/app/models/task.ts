@@ -4,4 +4,5 @@ export class URL {
   'shortUrl': string;
   'expireAt': Date;
   'date': string;
+  'clicks': number;
 }
