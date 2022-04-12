@@ -22,7 +22,9 @@ export class TaskService {
   // }
 
   getTask(shortUrl: string): Observable<URL> {
-    return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl);
+    return this.http.get<URL>(
+      this.APIHost + this.APIv1Path + shortUrl + '/stats'
+    );
   }
 
   addTask(url: URL): Observable<URL> {
