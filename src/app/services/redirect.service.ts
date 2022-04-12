@@ -18,7 +18,7 @@ export class RedirectService {
   APIv1Path = '/api/v1/links';
   devDomain = 'http://localhost:46001/api/v1/links';
 
-  getUrl(shortUrl: string) {
+  getUrl(shortUrl: string): Observable<any> {
     const releaseUrl = `${this.APIHost}${this.APIv1Path}`;
     const combinedUrl = `${releaseUrl}/${shortUrl}`;
     return this.http.get(combinedUrl).pipe(

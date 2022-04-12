@@ -21,13 +21,16 @@ export class RedirectComponent implements OnInit {
 
   urls: URL = new URL();
   urlLong = '';
+  gatheredUrl: any;
   ngOnInit(): void {
     this.route.params.subscribe((param) => {
       this.redirectService.getUrl(param.shortUrl).subscribe(
         (link) => (
+          (this.gatheredUrl = link.longUrl),
+          console.log(this.gatheredUrl),
           (this.urlLong = link.longUrl),
           setTimeout(() => {
-            window.location.href = link.longUrl;
+            window.location.href = this.gatheredUrl;
           }, 1500)
         )
       ),
