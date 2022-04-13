@@ -9,14 +9,17 @@ table {
   --bs-gutter-x: 0rem;
 }
 .limitTextHeight {
-  height: 20px;
+  height: 24px;
   overflow: hidden;
 }
+.limitTextHeight:hover {
+  overflow: visible;
+}
 
-/* .urlCards {
-  max-width: ;
-} */
-
+.limitTextHeight:hover {
+  overflow: visible;
+  height: auto;
+}
 .block {
   display: block;
   width: 100%;
@@ -42,5 +45,10 @@ table {
 
 .urlCards {
   margin-bottom: 1rem;
-  justify-content: space-around;
 }
+
+/* .theCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+} */

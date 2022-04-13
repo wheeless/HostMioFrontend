@@ -101,7 +101,10 @@
             >
           </h5>
           <div class="card-body">
-            <div class="card-title" [ngClass]="{ limitTextHeight: isReadMore }">
+            <div
+              class="card-title text-overflow"
+              [ngClass]="{ limitTextHeight: isReadMore }"
+            >
               <a
                 href="{{ url.longUrl }}"
                 target="_blank"
@@ -127,13 +130,6 @@
             >
               Details
             </button>
-            <!-- <button
-              type="button"
-              class="btn btn-info button-margin btn-xs"
-              (click)="showText()"
-            >
-              {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
-            </button> -->
           </div>
         </div>
       </div>
