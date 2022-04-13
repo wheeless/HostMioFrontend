@@ -80,12 +80,18 @@
     </button>
   </div>
   <div class="container g-0">
-    <div class="row justify-content-around">
+    <div class="row">
       <div class="card-deck row col-12 col-sm-12 col-md-12 col-lg-12">
         <div
           class="card text-center urlCards col-12 col-sm-12 col-md-12 col-lg-6"
           *ngFor="let url of urls | reverse"
         >
+          <span
+            class="position-absolute top-100 start-50 translate-middle badge badge-pill bg-success"
+          >
+            {{ url.clicks }} click(s)
+            <span class="visually-hidden">times clicked</span>
+          </span>
           <h5 class="card-header">
             <a
               routerLink="/{{ url.shortUrl }}"
