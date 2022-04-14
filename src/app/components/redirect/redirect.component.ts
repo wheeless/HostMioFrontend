@@ -31,7 +31,7 @@ export class RedirectComponent implements OnInit {
           (this.urlLong = link.longUrl),
           setTimeout(() => {
             window.location.href = this.gatheredUrl;
-          }, 1500)
+          }, 1000)
         )
       ),
         (error) => {

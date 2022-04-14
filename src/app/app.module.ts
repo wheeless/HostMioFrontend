@@ -42,6 +42,7 @@ import { Router } from '@angular/router';
 
 Sentry.init({
   dsn: 'https://5f2c4369c4e04972b21a7d23537ec658@o1171884.ingest.sentry.io/6266816',
+  denyUrls: ['https://hostm.io/urls', 'https://hostm.io/urls/'],
   integrations: [
     // Registers and configures the Tracing integration,
     // which automatically instruments your application to monitor its

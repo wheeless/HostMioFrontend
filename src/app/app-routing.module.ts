@@ -21,6 +21,7 @@ import { WhyPageComponent } from './components/why-page/why-page.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { TOSComponent } from './components/tos/tos.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
+import { LinkResolver } from './resolvers/link.resolver';
 
 const routes: Routes = [
   {
@@ -68,26 +69,37 @@ const routes: Routes = [
     },
   },
   {
-    path: 'policy',
-    component: PrivacyPolicyComponent,
-    data: {
-      title: 'Privacy Policy',
-    },
+    path: 'legal',
+    children: [
+      {
+        path: '',
+        redirectTo: '/legal/policy',
+        pathMatch: 'full',
+      },
+      {
+        path: 'policy',
+        component: PrivacyPolicyComponent,
+        data: {
+          title: 'Privacy Policy',
+        },
+      },
+      {
+        path: 'tos',
+        component: TOSComponent,
+        data: {
+          title: 'Terms of Service',
+        },
+      },
+      {
+        path: 'disclaimer',
+        component: DisclaimerComponent,
+        data: {
+          title: 'Disclaimer',
+        },
+      },
+    ],
   },
-  {
-    path: 'tos',
-    component: TOSComponent,
-    data: {
-      title: 'Terms of Service',
-    },
-  },
-  {
-    path: 'disclaimer',
-    component: DisclaimerComponent,
-    data: {
-      title: 'Disclaimer',
-    },
-  },
+
   {
     path: 'redirect',
     component: RedirectComponent,
@@ -113,6 +125,9 @@ const routes: Routes = [
   {
     path: ':shortUrl',
     component: RedirectComponent,
+    resolve: {
+      link: LinkResolver,
+    },
     data: {
       title: 'Redirecting...',
     },
