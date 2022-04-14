@@ -50,7 +50,7 @@ export class DisplayTaskComponent implements OnInit {
 
   reloadLinks(): void {
     this.getTasks();
-    this.infoToast('Links Reloaded');
+    this.infoToast('Links Reloading');
   }
 
   sendForAdd() {

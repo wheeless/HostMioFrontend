@@ -44,6 +44,7 @@ export class TaskDetailsComponent implements OnInit {
       position: 'bottom-center',
     });
   }
+
   infoToast(message) {
     this.toast.info(message, {
       autoClose: true,
@@ -51,6 +52,7 @@ export class TaskDetailsComponent implements OnInit {
       position: 'bottom-center',
     });
   }
+
   failToast(message) {
     this.toast.error(message, {
       autoClose: true,
@@ -58,6 +60,7 @@ export class TaskDetailsComponent implements OnInit {
       position: 'bottom-center',
     });
   }
+
   warnToast(message) {
     this.toast.warning(message, {
       autoClose: true,
@@ -65,6 +68,7 @@ export class TaskDetailsComponent implements OnInit {
       position: 'bottom-center',
     });
   }
+
   constructor(
     private taskService: TaskService,
     private router: Router,
