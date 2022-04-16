@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { URL } from '../../models/task';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-task-details',
@@ -14,27 +15,21 @@ export class TaskDetailsComponent implements OnInit {
   // urls: URL = new URL();
   tasks: URL[];
 
-  getTasks(): void {
-    this.taskService.getTasks().subscribe((t) => (this.tasks = t));
-  }
+  // getTasks(): void {
+  //   this.taskService.getTasks().subscribe((t) => (this.tasks = t));
+  // }
 
   patchExpireDate(shortUrl: string): void {
-    this.taskService.patchExpireDate(shortUrl).subscribe(
-      (url) => {
-        this.detailTask = url;
-        this.successToast('Expire date refreshed');
-      },
-      (error) => {
-        this.failToast('Error updating expire date');
-      }
-    );
+    this.taskService
+      .patchExpireDate(shortUrl)
+      .subscribe((url) => (this.detailTask = url));
   }
 
   deleteTask(_id: number): void {
     this.taskService
       .deleteTask(_id)
       .subscribe((t) => this.router.navigate(['urls']));
-    this.warnToast('Link Deleted');
+    //this.warnToast('Link Deleted');
   }
 
   successToast(message) {

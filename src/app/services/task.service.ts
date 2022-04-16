@@ -20,6 +20,11 @@ export class TaskService {
 
   getTasks(): Observable<URL[]> {
     return this.http.get<URL[]>(this.APIHost + this.APIv1Path).pipe(
+      this.toast.observe({
+        loading: 'Loading...',
+        success: (s) => 'Loaded Links!',
+        error: (e) => 'Whoa! I could not load the links for some reason.' + e,
+      }),
       catchError((error) => {
         return this.handleError(error);
       })
@@ -34,6 +39,11 @@ export class TaskService {
     return this.http
       .get<URL>(this.APIHost + this.APIv1Path + shortUrl + '/stats')
       .pipe(
+        this.toast.observe({
+          loading: 'Loading...',
+          success: () => 'Loaded Link',
+          error: (e) => 'Link could not be loaded: ' + e,
+        }),
         catchError((error) => {
           this.router.navigateByUrl('/404');
           return this.handleError(error);
@@ -43,6 +53,11 @@ export class TaskService {
 
   addTask(url: URL): Observable<URL> {
     return this.http.post<URL>(this.APIHost + this.APIv1Path, url).pipe(
+      this.toast.observe({
+        loading: 'Adding...',
+        success: () => 'Link Added',
+        error: (e) => 'Link could not be added: ' + e,
+      }),
       catchError((error) => {
         return this.handleError(error);
       })
@@ -51,6 +66,11 @@ export class TaskService {
 
   deleteTask(id: number): Observable<URL> {
     return this.http.delete<URL>(this.APIHost + this.APIv1Path + id).pipe(
+      this.toast.observe({
+        loading: 'Deleting...',
+        success: () => 'Link Deleted',
+        error: (e) => 'Link could not be Deleted: ' + e,
+      }),
       catchError((error) => {
         this.router.navigateByUrl('/404');
         return this.handleError(error);
@@ -60,6 +80,11 @@ export class TaskService {
 
   editTask(url: URL): Observable<URL> {
     return this.http.put<URL>(this.APIHost + '/' + url._id, url).pipe(
+      this.toast.observe({
+        loading: 'Saving...',
+        success: () => 'Link Saved!',
+        error: (e) => 'Link could not be saved: ' + e,
+      }),
       catchError((error) => {
         this.router.navigateByUrl('/404');
         return this.handleError(error);
@@ -71,6 +96,11 @@ export class TaskService {
     return this.http
       .patch<URL>(this.APIHost + this.APIv1Path + shortUrl + '/expire', URL)
       .pipe(
+        this.toast.observe({
+          loading: 'Extending Expire Date...',
+          success: () => 'Expire date extended',
+          error: (e) => 'Expire date could not be extended: ' + e,
+        }),
         catchError((error) => {
           return this.handleError(error);
         })

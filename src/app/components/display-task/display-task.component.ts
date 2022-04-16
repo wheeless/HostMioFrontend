@@ -52,29 +52,22 @@ export class DisplayTaskComponent implements OnInit {
   // }
   deleteTask(_id: number): void {
     this.taskServer.deleteTask(_id).subscribe((url) => this.getTasks());
-    this.warnToast('Link Deleted');
   }
 
   reloadLinks(): void {
     this.getTasks();
-    this.infoToast('Links Reloading');
   }
 
   sendForAdd() {
     if (this.url.longUrl === undefined || this.url.longUrl === '') {
       this.warnToast('Please enter a valid URL');
-    }
-    // } else if (error) {
-    //   this.warnToast(error);
-    // }
-    else {
+    } else {
       this.addTask();
     }
   }
 
   addTask() {
     this.taskServer.addTask(this.url).subscribe((u) => this.getTasks());
-    this.successToast('Link Added');
     this.url.longUrl = '';
     this.url.shortUrl = '';
   }

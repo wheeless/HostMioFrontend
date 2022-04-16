@@ -106,7 +106,21 @@ Sentry.init({
     MatProgressBarModule,
     ClipboardModule,
     NgbModule,
-    HotToastModule.forRoot(),
+    HotToastModule.forRoot({
+      reverseOrder: true,
+      dismissible: true,
+      autoClose: true,
+      position: 'bottom-center',
+      style: {
+        border: '1px solid #713200',
+        padding: '16px',
+        color: '#713200',
+      },
+      iconTheme: {
+        primary: '#713200',
+        secondary: '#FFFFFF',
+      },
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
