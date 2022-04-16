@@ -30,7 +30,7 @@ export class TaskService {
   //   return this.http.get<URL>(this.domain + '/' + shortUrl);
   // }
 
-  getTask(shortUrl: string): Observable<URL> {
+  getTask(shortUrl: string): Observable<any> {
     return this.http
       .get<URL>(this.APIHost + this.APIv1Path + shortUrl + '/stats')
       .pipe(

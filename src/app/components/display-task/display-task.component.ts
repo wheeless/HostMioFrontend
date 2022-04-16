@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL } from 'src/app/models/task';
-import { Router } from '@angular/router';
+import {
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { from } from 'rxjs';
@@ -31,6 +37,7 @@ export class DisplayTaskComponent implements OnInit {
   pageOfItems: Array<any>;
   public fg: FormGroup;
   isCopied;
+  loading = false;
 
   getTasks(): void {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));

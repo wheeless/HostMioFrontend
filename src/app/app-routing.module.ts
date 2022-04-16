@@ -22,6 +22,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { TOSComponent } from './components/tos/tos.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { LinkResolver } from './resolvers/link.resolver';
+import { LinkDetailResolver } from './resolvers/link-detail.resolver';
 
 const routes: Routes = [
   {
@@ -110,6 +111,9 @@ const routes: Routes = [
   {
     path: 'details/:shortUrl',
     component: TaskDetailsComponent,
+    resolve: {
+      shortUrl: LinkDetailResolver,
+    },
     data: {
       title: 'Link Details',
     },
@@ -126,7 +130,7 @@ const routes: Routes = [
     path: ':shortUrl',
     component: RedirectComponent,
     resolve: {
-      link: LinkResolver,
+      shortUrl: LinkResolver,
     },
     data: {
       title: 'Redirecting...',

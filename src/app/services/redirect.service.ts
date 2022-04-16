@@ -17,6 +17,7 @@ export class RedirectService {
   //APIHost = 'http://localhost:46001';
   APIv1Path = '/api/v1/links';
   devDomain = 'http://localhost:46001/api/v1/links';
+  data: any;
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
@@ -39,7 +40,7 @@ export class RedirectService {
   getUrl(shortUrl: string): Observable<any> {
     const releaseUrl = `${this.APIHost}${this.APIv1Path}`;
     const combinedUrl = `${releaseUrl}/${shortUrl}`;
-    console.log(combinedUrl);
+    // console.log(combinedUrl);
     return this.http.get(combinedUrl).pipe(
       // catchError(this.handleError)
       retry(1),

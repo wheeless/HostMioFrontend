@@ -1,29 +1,26 @@
 import { Injectable } from '@angular/core';
-import { URL } from '../models/task';
-import { RedirectService } from '../services/redirect.service';
 import {
   Router,
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
+import { TaskService } from '../services/task.service';
 import { catchError, Observable, of, retry, throwError } from 'rxjs';
 import { HotToastService } from '@ngneat/hot-toast';
 import { HttpErrorResponse } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root',
 })
-export class LinkResolver implements Resolve<URL> {
-  constructor(
-    private service: RedirectService,
-    private toast: HotToastService
-  ) {}
+export class LinkDetailResolver implements Resolve<URL> {
+  constructor(private service: TaskService, private toast: HotToastService) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<URL> | Promise<URL> | URL {
-    return this.service.getUrl(route.paramMap.get('shortUrl')).pipe(
+    return this.service.getTask(route.paramMap.get('shortUrl')).pipe(
       retry(1),
       catchError((error) => {
         return this.handleError(error);
