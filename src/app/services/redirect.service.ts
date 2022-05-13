@@ -8,7 +8,7 @@ import { URL } from '../models/task';
 import { map, catchError, retry, tap } from 'rxjs/operators';
 import { Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { HotToastService } from '@ngneat/hot-toast';
 @Injectable({
   providedIn: 'root',
 })
@@ -23,6 +23,16 @@ export class RedirectService {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error);
+    } else if (error.status === 404) {
+      // The requested resource doesn't exist.
+      this.failToast('The requested resource does not exist: ' + error.message);
+      console.error('An error occurred:', error.message);
+    } else if (error.status === 500 || error.status === 504) {
+      // The server encountered an error.
+      this.failToast(
+        'Server is not responding or API rate limiting hit: ' + error.message
+      );
+      console.error('An error occurred:', error.message);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
@@ -30,19 +40,25 @@ export class RedirectService {
         `Backend returned code ${error.status}, body was: `,
         error.error
       );
+      // Return an observable with a user-facing error message.
+      return throwError(
+        () => new Error('Something bad happened; please try again later.')
+      );
     }
-    // Return an observable with a user-facing error message.
-    return throwError(
-      () => new Error('Something bad happened; please try again later.')
-    );
+  }
+
+  failToast(message) {
+    this.toast.error(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
   }
 
   getUrl(shortUrl: string): Observable<any> {
     const releaseUrl = `${this.APIHost}${this.APIv1Path}`;
     const combinedUrl = `${releaseUrl}/${shortUrl}`;
-    // console.log(combinedUrl);
     return this.http.get(combinedUrl).pipe(
-      // catchError(this.handleError)
       retry(1),
       catchError((error) => {
         this.router.navigateByUrl('/404');
@@ -51,16 +67,9 @@ export class RedirectService {
     );
   }
 
-  // getUrlCatchError(shortUrl: string): Observable<URL> {
-  //   return this.http.get<URL>(this.APIHost + this.APIv1Path + shortUrl).pipe(
-  //     catchError((error) => {
-  //       console.log(error);
-  //       alert('error');
-  //       this.handleError;
-  //       return throwError('Error in getUrlCatchError');
-  //     })
-  //   );
-  // }
-
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private toast: HotToastService
+  ) {}
 }

@@ -31,7 +31,6 @@ import { HotToastService } from '@ngneat/hot-toast';
   ],
 })
 export class DisplayTaskComponent implements OnInit {
-  //Creating a model to handle our new task inputs
   urls: URL[];
   url: URL = new URL();
   pageOfItems: Array<any>;

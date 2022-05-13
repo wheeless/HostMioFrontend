@@ -15,7 +15,6 @@ table {
 .limitTextHeight:hover {
   overflow: visible;
 }
-
 .limitTextHeight:hover {
   overflow: visible;
   height: auto;
@@ -30,25 +29,15 @@ table {
   text-align: center;
   outline: none;
 }
-
 .center {
   text-align: center;
 }
-
 .red {
   color: red;
 }
-
 .view-long-url {
   margin-bottom: 0.5rem;
 }
-
 .urlCards {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
-
-/* .theCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-} */

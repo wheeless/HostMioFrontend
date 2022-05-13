@@ -112,13 +112,9 @@ Sentry.init({
       autoClose: true,
       position: 'bottom-center',
       style: {
-        border: '1px solid #713200',
+        border: '1px solid #000000',
         padding: '16px',
-        color: '#713200',
-      },
-      iconTheme: {
-        primary: '#713200',
-        secondary: '#FFFFFF',
+        color: '#000000',
       },
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
