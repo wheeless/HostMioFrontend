@@ -10,10 +10,6 @@ import { filter, map } from 'rxjs';
 })
 export class AppComponent {
   public constructor(private titleService: Title, private router: Router) {}
-  // public setTitle(newTitle: string) {
-  //   this.titleService.setTitle(event['title'])
-  //   //this.titleService.setTitle('HostMio - ' + newTitle);
-  // }
 
   ngOnInit() {
     this.router.events

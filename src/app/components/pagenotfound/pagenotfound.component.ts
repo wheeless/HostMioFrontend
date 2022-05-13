@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common'
-import { NavigationService } from '../../services/navigation.service'
+import { NavigationService } from '../../services/navigation.service';
 @Component({
   selector: 'app-pagenotfound',
   templateUrl: './pagenotfound.component.html',
-  styleUrls: ['./pagenotfound.component.css']
+  styleUrls: ['./pagenotfound.component.css'],
 })
 export class PagenotfoundComponent implements OnInit {
-
-  constructor(private navigation: NavigationService) { }
+  constructor(private navigation: NavigationService) {}
   goBack(): void {
-    this.navigation.back()
+    this.navigation.back();
   }
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

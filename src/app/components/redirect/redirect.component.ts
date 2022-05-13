@@ -1,11 +1,8 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { RedirectService } from 'src/app/services/redirect.service';
-import { partitionArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { parseMetadata } from '@angular/localize/src/utils';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { URL } from '../../models/task';
-import { Title } from '@angular/platform-browser';
+import { parseMetadata } from '@angular/localize/src/utils';
 
 @Component({
   selector: 'app-redirect',
@@ -15,7 +12,6 @@ import { Title } from '@angular/platform-browser';
 export class RedirectComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private http: HttpClient,
     private redirectService: RedirectService
   ) {}
 
