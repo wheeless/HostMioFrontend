@@ -91,12 +91,41 @@ export class DisplayTaskComponent implements OnInit {
     this.pageOfItems = pageOfItems;
   }
 
-  constructor(
-    private taskServer: TaskService,
-    private toast: HotToastService
-  ) {}
+  startTime!: number;
+  initTime!: number;
+  contentInitTime!: number;
+  viewInitTime!: number;
+
+  printTime(time: number) {
+    console.log(`Global loading ${time}ms`);
+    console.log(`Global loading ${time / 1000}s`);
+    console.log(`Component loading ${time - this.startTime}ms`);
+    console.log(`Component loading ${(time - this.startTime) / 1000}s`);
+    const loadTime = `Global loading ${time}ms`;
+  }
+  // Created
+
+  // Initialized by angular
+
+  // Rendered without children
+  ngAfterContentInit() {
+    this.contentInitTime = window.performance.now();
+    this.printTime(this.contentInitTime);
+  }
+  // Rendered with children
+  ngAfterViewInit() {
+    this.viewInitTime = window.performance.now();
+    this.printTime(this.viewInitTime);
+  }
+
+  constructor(private taskServer: TaskService, private toast: HotToastService) {
+    this.startTime = window.performance.now();
+    this.printTime(this.startTime);
+  }
 
   ngOnInit() {
     this.getTasks();
+    this.initTime = window.performance.now();
+    this.printTime(this.initTime);
   }
 }

@@ -92,7 +92,7 @@ Sentry.init({
       reverseOrder: true,
       dismissible: true,
       autoClose: true,
-      position: 'bottom-center',
+      position: 'bottom-right',
       style: {
         border: '1px solid #000000',
         padding: '16px',
