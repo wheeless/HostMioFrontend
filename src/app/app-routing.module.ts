@@ -111,9 +111,9 @@ const routes: Routes = [
   {
     path: 'details/:shortUrl',
     component: TaskDetailsComponent,
-    resolve: {
-      shortUrl: LinkDetailResolver,
-    },
+    // resolve: {
+    //   shortUrl: LinkDetailResolver,
+    // },
     data: {
       title: 'Link Details',
     },

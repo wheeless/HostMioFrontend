@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpResponse,
+} from '@angular/common/http';
 import { URL } from '../models/task';
 import { HotToastService } from '@ngneat/hot-toast';
 import { catchError, Observable, of, throwError } from 'rxjs';
@@ -94,7 +98,7 @@ export class TaskService {
         this.toast.observe({
           loading: 'Extending Expire Date...',
           success: () => 'Expire date extended',
-          error: (e) => 'Expire date could not be extended: ',
+          error: (e) => 'Expire date could not be extended: ' + e.message,
         }),
         catchError((error) => {
           return this.handleError(error);
