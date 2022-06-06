@@ -67,6 +67,17 @@ export class RedirectService {
     );
   }
 
+  incrementClicks(shortUrl: string): Observable<URL> {
+    const releaseUrl = `${this.APIHost}${this.APIv1Path}`;
+    const combinedUrl = `${releaseUrl}/${shortUrl}/incrementClicks`;
+    return this.http.patch<URL>(combinedUrl, URL).pipe(
+      catchError((error) => {
+        this.router.navigateByUrl('/404');
+        return this.handleError(error);
+      })
+    );
+  }
+
   constructor(
     private http: HttpClient,
     private router: Router,

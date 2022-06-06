@@ -30,6 +30,9 @@ export class RedirectComponent implements OnInit {
           }, 1000)
         )
       ),
+        this.redirectService
+          .incrementClicks(param.shortUrl)
+          .subscribe((link) => console.log(link)),
         (error) => {
           console.log(error);
         };
