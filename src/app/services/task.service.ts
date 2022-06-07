@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class TaskService {
-  APIHost = 'https://api.hostmonkey.io';
+  APIHost = 'https://api.avernix.com';
   // APIHost = 'http://localhost:46001';
 
   APIv1Path = '/api/v1/links/';

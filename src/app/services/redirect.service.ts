@@ -13,7 +13,7 @@ import { HotToastService } from '@ngneat/hot-toast';
   providedIn: 'root',
 })
 export class RedirectService {
-  APIHost = 'https://api.hostmonkey.io';
+  APIHost = 'https://api.avernix.com';
   //APIHost = 'http://localhost:46001';
   APIv1Path = '/api/v1/links';
   devDomain = 'http://localhost:46001/api/v1/links';
