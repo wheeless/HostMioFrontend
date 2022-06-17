@@ -6,16 +6,18 @@ import {
 } from '@angular/common/http';
 import { URL } from '../models/task';
 import { HotToastService } from '@ngneat/hot-toast';
-import { catchError, Observable, of, throwError } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
   APIHost = 'https://api.avernix.com';
-  // APIHost = 'http://localhost:46001';
+  //APIHost = 'http://localhost:46001';
 
   APIv1Path = '/api/v1/links/';
+
+  // url: URL[] = [];
 
   getTasks(): Observable<URL[]> {
     return this.http.get<URL[]>(this.APIHost + this.APIv1Path).pipe(
@@ -27,6 +29,7 @@ export class TaskService {
       catchError((error) => {
         return this.handleError(error);
       })
+      //map((urls: any) => urls.result)
     );
   }
 
