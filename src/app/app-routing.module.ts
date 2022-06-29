@@ -22,6 +22,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { TOSComponent } from './components/tos/tos.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { LinkResolver } from './resolvers/link.resolver';
+import { DeactivatedLinksComponent } from './components/deactivated-links/deactivated-links.component';
 import { LinkDetailResolver } from './resolvers/link-detail.resolver';
 
 const routes: Routes = [
@@ -39,6 +40,13 @@ const routes: Routes = [
     component: DisplayTaskComponent,
     data: {
       title: 'Links',
+    },
+  },
+  {
+    path: 'deactivated-links',
+    component: DeactivatedLinksComponent,
+    data: {
+      title: 'Deactivated Links',
     },
   },
   {

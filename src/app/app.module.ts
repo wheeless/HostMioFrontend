@@ -35,6 +35,7 @@ import { DisclaimerComponent } from './components/disclaimer/disclaimer.componen
 import * as Sentry from '@sentry/angular';
 import { BrowserTracing } from '@sentry/tracing';
 import { Router } from '@angular/router';
+import { DeactivatedLinksComponent } from './components/deactivated-links/deactivated-links.component';
 
 Sentry.init({
   dsn: 'https://5f2c4369c4e04972b21a7d23537ec658@o1171884.ingest.sentry.io/6266816',
@@ -75,6 +76,7 @@ Sentry.init({
     PrivacyPolicyComponent,
     TOSComponent,
     DisclaimerComponent,
+    DeactivatedLinksComponent,
   ],
   imports: [
     BrowserModule,

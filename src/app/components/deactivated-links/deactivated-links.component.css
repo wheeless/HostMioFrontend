@@ -1,0 +1,43 @@
+td {
+  white-space: normal !important;
+  word-wrap: break-word;
+}
+table {
+  table-layout: fixed;
+}
+.row {
+  --bs-gutter-x: 0rem;
+}
+.limitTextHeight {
+  height: 24px;
+  overflow: hidden;
+}
+.limitTextHeight:hover {
+  overflow: visible;
+}
+.limitTextHeight:hover {
+  overflow: visible;
+  height: auto;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+}
+.center {
+  text-align: center;
+}
+.red {
+  color: red;
+}
+.view-long-url {
+  margin-bottom: 0.5rem;
+}
+.urlCards {
+  margin-bottom: 0.5rem;
+}

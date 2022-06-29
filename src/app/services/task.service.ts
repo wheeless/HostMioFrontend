@@ -30,6 +30,21 @@ export class TaskService {
     );
   }
 
+  getDeactivatedLinks(): Observable<URL[]> {
+    return this.http
+      .get<URL[]>(this.APIHost + this.APIv1Path + '/deactivated')
+      .pipe(
+        this.toast.observe({
+          loading: 'Loading...',
+          success: (s) => 'Loaded Links!',
+          error: (e) => 'Whoa! I could not load the links for some reason.',
+        }),
+        catchError((error) => {
+          return this.handleError(error);
+        })
+      );
+  }
+
   // getTask(shortUrl: string): Observable<URL> {
   //   return this.http.get<URL>(this.domain + '/' + shortUrl);
   // }

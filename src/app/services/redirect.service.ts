@@ -16,7 +16,7 @@ export class RedirectService {
   APIHost = 'https://api.avernix.com';
   //APIHost = 'http://localhost:46001';
   APIv1Path = '/api/v1/links';
-  devDomain = 'http://localhost:46001/api/v1/links';
+
   data: any;
 
   private handleError(error: HttpErrorResponse) {
@@ -25,12 +25,13 @@ export class RedirectService {
       console.error('An error occurred:', error.error);
     } else if (error.status === 404) {
       // The requested resource doesn't exist.
-      this.failToast('The requested resource does not exist: ' + error.message);
+      this.failToast(`${error.error.message}`);
       console.error('An error occurred:', error.message);
     } else if (error.status === 500 || error.status === 504) {
       // The server encountered an error.
       this.failToast(
-        'Server is not responding or API rate limiting hit: ' + error.message
+        'Server is not responding or API rate limiting hit: ' +
+          error.error.message
       );
       console.error('An error occurred:', error.message);
     } else {
@@ -38,7 +39,7 @@ export class RedirectService {
       // The response body may contain clues as to what went wrong.
       console.error(
         `Backend returned code ${error.status}, body was: `,
-        error.error
+        error.error.message
       );
       // Return an observable with a user-facing error message.
       return throwError(
