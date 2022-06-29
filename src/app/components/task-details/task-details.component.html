@@ -36,15 +36,15 @@
       <button
         type="button"
         class="btn btn-xs {{
-          detailTask.deactivated === false ? 'btn-danger' : 'btn-success'
+          detailTask.deactivated === true ? 'btn-success' : 'btn-danger'
         }}"
         (click)="
-          detailTask.deactivated === false
-            ? deleteTask(detailTask._id)
-            : reactivateLink(detailTask._id)
+          detailTask.deactivated === true
+            ? reactivateLink(detailTask._id)
+            : deleteTask(detailTask._id)
         "
       >
-        {{ detailTask.deactivated === false ? "Deactivate" : "Reactivate" }}
+        {{ detailTask.deactivated === true ? "Reactivate" : "Deactivate" }}
       </button>
     </div>
   </div>
