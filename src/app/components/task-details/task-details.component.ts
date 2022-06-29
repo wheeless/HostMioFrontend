@@ -19,15 +19,21 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   deleteTask(_id: number): void {
-    this.taskService
-      .deleteTask(_id)
-      .subscribe((t) => this.router.navigate(['deactivated-links']));
+    this.taskService.deleteTask(_id).subscribe((t) => this.getTaskDetails());
   }
 
   reactivateLink(_id: number): void {
     this.taskService
       .reactivateLink(_id)
-      .subscribe((t) => this.router.navigate(['urls']));
+      .subscribe((t) => this.getTaskDetails());
+  }
+
+  getTaskDetails(): void {
+    this.route.params.subscribe((param) => {
+      this.taskService
+        .getTask(param.shortUrl)
+        .subscribe((t) => (this.detailTask = t));
+    });
   }
 
   constructor(
@@ -37,10 +43,6 @@ export class TaskDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((param) => {
-      this.taskService
-        .getTask(param.shortUrl)
-        .subscribe((t) => (this.detailTask = t));
-    });
+    this.getTaskDetails();
   }
 }

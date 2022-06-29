@@ -26,7 +26,47 @@
       [ngbCollapse]="isCollapsed"
     >
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
+        <li class="nav-item dropdown" [routerLinkActive]="['active']">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="linksDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Links
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="linksDropdown"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                aria-current="page"
+                [routerLink]="['/urls']"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Active Links</a
+              >
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                aria-current="page"
+                [routerLink]="['/deactivated-links']"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >Inactive Links</a
+              >
+            </li>
+          </ul>
+        </li>
+        <!-- <li class="nav-item">
           <a
             class="nav-link"
             aria-current="page"
@@ -35,7 +75,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             >Links</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             class="nav-link"
