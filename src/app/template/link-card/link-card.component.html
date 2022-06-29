@@ -1,0 +1,36 @@
+<span
+  class="position-absolute top-100 start-50 translate-middle badge badge-pill bg-success"
+>
+  {{ clicks }} click(s)
+  <span class="visually-hidden">times clicked</span>
+</span>
+<h5 class="card-header">
+  <a routerLink="/{{ shortUrl }}" target="_blank" rel="noopener noreferrer"
+    >https://hostm.io/{{ shortUrl }}
+  </a>
+</h5>
+<div class="card-body">
+  <div class="card-title text-overflow limitTextHeight">
+    <a href="{{ longUrl }}" target="_blank" rel="noopener noreferrer">{{
+      longUrl
+    }}</a>
+  </div>
+  <p class="card-text">Link descriptions coming in v2 of the api</p>
+  <button
+    type="button"
+    class="btn btn-primary button-margin btn-xs"
+    ngxClipboard
+    (cbOnSuccess)="this.successToast('Link Copied')"
+    (cbOnError)="this.failToast('Error Copying Link')"
+    [cbContent]="'https://hostm.io/' + shortUrl"
+  >
+    Copy Url
+  </button>
+  <button
+    type="button"
+    class="btn btn-info button-margin btn-xs"
+    [routerLink]="['/details', shortUrl]"
+  >
+    Details
+  </button>
+</div>

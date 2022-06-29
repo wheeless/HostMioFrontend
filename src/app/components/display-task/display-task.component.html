@@ -1,83 +1,22 @@
 <div class="container">
   <h1 class="center">Welcome to HostMio</h1>
-  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="card text-center urlCards">
-      <h5 class="card-header">Create a link</h5>
-      <div class="card-body">
-        <form>
-          <label for="longUrl" class="form-label"
-            >Long Url (Make sure it is a full URL)</label
-          >
-          <input
-            type="url"
-            id="longUrl"
-            class="form-control"
-            placeholder="https://example.com"
-            [(ngModel)]="url.longUrl"
-            pattern="^(http(s)?:\/\/)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$"
-            oninvalid="this.setCustomValidity('Please match the requested format')"
-            [ngModelOptions]="{ standalone: true }"
-            required
-          />
-          <br />
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-              <label for="shortUrl">Short Url</label>
-              <div class="input-group">
-                <span class="input-group-text" id="basic-addon3"
-                  >https://hostm.io/</span
-                >
-                <input
-                  type="text"
-                  id="shortUrl"
-                  class="form-control"
-                  placeholder="leave blank for random back half"
-                  [(ngModel)]="url.shortUrl"
-                  [ngModelOptions]="{ standalone: true }"
-                />
-              </div>
-            </div>
-            <br />
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-              <label for="expireDate">Expire Date</label>
-              <input
-                class="form-control"
-                type="date"
-                name="expireDate"
-                id="expireDate"
-                [(ngModel)]="url.expireAt"
-              />
-            </div>
-          </div>
-          <br />
-          <button
-            type="submit"
-            class="btn btn-success"
-            id="createNewTask"
-            (click)="sendForAdd()"
-          >
-            Create Short Link
-          </button>
-          <input type="hidden" id="timezone" name="timezone" value="-00:00" />
-        </form>
-      </div>
-    </div>
-  </div>
+  <app-add-task></app-add-task>
+
   <div class="row">
     <button
       type="button"
-      class="btn btn-primary button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
+      class="btn btn-primary button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-12"
       (click)="reloadLinks()"
     >
       Refresh Links
     </button>
-    <button
+    <!-- <button
       type="button"
       class="btn btn-info button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
-      (click)="showText()"
+      (click)="one.showText()"
     >
-      {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
-    </button>
+      {{ one.isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
+    </button> -->
   </div>
   <div class="container g-0">
     <div class="row">
@@ -86,57 +25,17 @@
           class="card text-center urlCards col-12 col-sm-12 col-md-12 col-lg-6"
           *ngFor="let url of urls | reverse"
         >
-          <span
-            class="position-absolute top-100 start-50 translate-middle badge badge-pill bg-success"
-          >
-            {{ url.clicks }} click(s)
-            <span class="visually-hidden">times clicked</span>
-          </span>
-          <h5 class="card-header">
-            <a
-              routerLink="/{{ url.shortUrl }}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >https://hostm.io/{{ url.shortUrl }}
-            </a>
-          </h5>
-          <div class="card-body">
-            <div
-              class="card-title text-overflow"
-              [ngClass]="{ limitTextHeight: isReadMore }"
-            >
-              <a
-                href="{{ url.longUrl }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                >{{ url.longUrl }}</a
-              >
-            </div>
-            <p class="card-text">Link descriptions coming in v2 of the api</p>
-            <button
-              type="button"
-              class="btn btn-primary button-margin btn-xs"
-              ngxClipboard
-              (cbOnSuccess)="this.successToast('Link Copied')"
-              (cbOnError)="this.failToast('Error Copying Link')"
-              [cbContent]="'https://hostm.io/' + url.shortUrl"
-            >
-              Copy Url
-            </button>
-            <button
-              type="button"
-              class="btn btn-info button-margin btn-xs"
-              [routerLink]="['/details', url.shortUrl]"
-            >
-              Details
-            </button>
-          </div>
+          <app-link-card
+            clicks="{{ url.clicks }}"
+            shortUrl="{{ url.shortUrl }}"
+            longUrl="{{ url.longUrl }}"
+          ></app-link-card>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- <jw-pagination
+  <!-- <jw-pagination
   [items]="urls"
   (changePage)="onChangePage($event)"
 ></jw-pagination> -->
+</div>

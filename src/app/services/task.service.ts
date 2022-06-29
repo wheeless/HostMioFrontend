@@ -144,21 +144,26 @@ export class TaskService {
       console.error('An error occurred:', error.message);
     } else if (error.status === 404) {
       // The requested resource doesn't exist.
-      this.failToast('The requested resource does not exist: ' + error.message);
-      console.error('An error occurred:', error.message);
+      this.failToast(
+        'The requested resource does not exist: ' + error.error.message
+      );
+      console.error('An error occurred:', error.error.message);
     } else if (error.status === 500 || error.status === 504) {
       // The server encountered an error.
       this.failToast(
-        'Server is not responding or API rate limiting hit: ' + error.message
+        'Server is not responding or API rate limiting hit: ' +
+          error.error.message
       );
-      console.error('An error occurred:', error.message);
+      console.error('An error occurred:', error.error.message);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
-      this.failToast(`Backend returned code ${error.status}: ` + error.message);
+      this.failToast(
+        `Backend returned code ${error.error.status}: ` + error.error.message
+      );
       console.error(
-        `Backend returned code ${error.status}, body was: `,
-        error.message
+        `Backend returned code ${error.error.status}, body was: `,
+        error.error.message
       );
       return throwError(
         () => new Error('Something bad happened; please try again later.')

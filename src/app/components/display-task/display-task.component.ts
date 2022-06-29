@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { URL } from 'src/app/models/task';
 import { TaskService } from '../../services/task.service';
 import { FormGroup } from '@angular/forms';
@@ -19,6 +19,10 @@ import { HotToastService } from '@ngneat/hot-toast';
   ],
 })
 export class DisplayTaskComponent implements OnInit {
+  // static getTasks() {
+  //   this.getTasks();
+  // }
+
   urls: URL[];
   url: URL = new URL();
   pageOfItems: Array<any>;
@@ -26,7 +30,7 @@ export class DisplayTaskComponent implements OnInit {
   isCopied;
   loading = false;
 
-  getTasks(): void {
+  getTasks() {
     this.taskServer.getTasks().subscribe((url) => (this.urls = url));
   }
 
@@ -36,20 +40,6 @@ export class DisplayTaskComponent implements OnInit {
 
   reloadLinks(): void {
     this.getTasks();
-  }
-
-  sendForAdd() {
-    if (this.url.longUrl === undefined || this.url.longUrl === '') {
-      this.warnToast('Please enter a valid URL');
-    } else {
-      this.addTask();
-    }
-  }
-
-  addTask() {
-    this.taskServer.addTask(this.url).subscribe((u) => this.getTasks());
-    this.url.longUrl = '';
-    this.url.shortUrl = '';
   }
 
   successToast(message) {

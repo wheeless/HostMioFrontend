@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { URL } from '../../models/task';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { DisplayTaskComponent } from '../display-task/display-task.component';
+import { AddLinkServiceService } from '../../services/add-link-service.service';
 
 @Component({
   selector: 'app-add-task',
@@ -11,14 +14,26 @@ import { Router } from '@angular/router';
 export class AddTaskComponent implements OnInit {
   url: URL = new URL();
 
-  addTask() {
-    this.taskService
-      .addTask(this.url)
-      .subscribe((u) => this.router.navigate(['/urls']));
-    // window.location.reload();
+  warnToast(message) {
+    this.toast.warning(message, {
+      autoClose: true,
+      dismissible: true,
+      position: 'bottom-center',
+    });
+  }
+  sendForAdd() {
+    if (this.url.longUrl === undefined || this.url.longUrl === '') {
+      this.warnToast('Please enter a valid URL...');
+    } else {
+      //this.addTask();
+      this.addTaskService.sendForAdd(this.url);
+    }
   }
 
-  constructor(private taskService: TaskService, private router: Router) {}
+  constructor(
+    private toast: HotToastService,
+    private addTaskService: AddLinkServiceService
+  ) {}
 
   ngOnInit() {
     //window.location.reload();
