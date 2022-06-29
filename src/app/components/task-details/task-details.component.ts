@@ -21,7 +21,7 @@ export class TaskDetailsComponent implements OnInit {
   deleteTask(_id: number): void {
     this.taskService
       .deleteTask(_id)
-      .subscribe((t) => this.router.navigate(['urls']));
+      .subscribe((t) => this.router.navigate(['deactivated-links']));
   }
 
   reactivateLink(_id: number): void {

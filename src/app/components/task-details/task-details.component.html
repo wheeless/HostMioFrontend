@@ -27,7 +27,9 @@
       </p>
       <button
         type="button"
-        class="btn btn-info btn-xs"
+        class="btn btn-info btn-xs {{
+          detailTask.deactivated === true ? 'disabled' : ''
+        }}"
         (click)="patchExpireDate(detailTask.shortUrl)"
       >
         Extend
