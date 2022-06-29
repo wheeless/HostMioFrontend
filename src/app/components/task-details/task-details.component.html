@@ -19,64 +19,33 @@
         >
       </div>
       <p class="card-text">Clicks: {{ detailTask.clicks }}</p>
+      <p class="card-text">Points: {{ detailTask.points }}</p>
       <p class="card-text">Expires: {{ detailTask.expireAt }}</p>
+      <p class="card-text">
+        Status:
+        {{ detailTask.deactivated === false ? "Active" : "Inactive" }}
+      </p>
       <button
         type="button"
         class="btn btn-info btn-xs"
         (click)="patchExpireDate(detailTask.shortUrl)"
       >
-        Refresh
+        Extend
       </button>
-
-      <button type="button" class="btn btn-danger btn-xs disabled">
-        Delete
+      <!-- {{ detailTask.deactivated === false ? deleteTask(detailTask._id) : (click)="reactivateLink(detailTask._id)" }} -->
+      <button
+        type="button"
+        class="btn btn-xs {{
+          detailTask.deactivated === false ? 'btn-danger' : 'btn-success'
+        }}"
+        (click)="
+          detailTask.deactivated === false
+            ? deleteTask(detailTask._id)
+            : reactivateLink(detailTask._id)
+        "
+      >
+        {{ detailTask.deactivated === false ? "Deactivate" : "Reactivate" }}
       </button>
-
-      <!-- <button
-      type="button"
-      class="btn btn-info button-margin btn-xs"
-      (click)="showText()"
-    >
-      {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
-    </button> -->
     </div>
   </div>
-  <!-- <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Url Code</th>
-        <th>Long Url</th>
-        <th>Expires</th>
-        <th>Refresh</th>
-        <th
-          data-toggle="tooltip"
-          data-placement="top"
-          title="Deleting Links has been temporarily disabled"
-        >
-          Delete*
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ detailTask.shortUrl }}</td>
-        <td>{{ detailTask.longUrl }}</td>
-        <td>{{ detailTask.expireAt }}</td>
-        <td>
-          <button
-            type="button"
-            class="btn btn-info btn-xs"
-            (click)="patchExpireDate(detailTask.shortUrl)"
-          >
-            Refresh
-          </button>
-        </td>
-        <td>
-          <button type="button" class="btn btn-danger btn-xs disabled">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
 </div>

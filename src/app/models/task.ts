@@ -5,4 +5,6 @@ export class URL {
   'expireAt': Date;
   'date': string;
   'clicks': number;
+  'points': number;
+  'deactivated': boolean;
 }

@@ -24,6 +24,12 @@ export class TaskDetailsComponent implements OnInit {
       .subscribe((t) => this.router.navigate(['urls']));
   }
 
+  reactivateLink(_id: number): void {
+    this.taskService
+      .reactivateLink(_id)
+      .subscribe((t) => this.router.navigate(['urls']));
+  }
+
   constructor(
     private taskService: TaskService,
     private router: Router,

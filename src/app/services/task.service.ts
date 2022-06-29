@@ -66,15 +66,31 @@ export class TaskService {
   deleteTask(id: number): Observable<URL> {
     return this.http.delete<URL>(this.APIHost + this.APIv1Path + id).pipe(
       this.toast.observe({
-        loading: 'Deleting...',
-        success: () => 'Link Deleted',
-        error: (e) => 'Link could not be Deleted: ',
+        loading: 'Deactivating...',
+        success: () => 'Link Deactivated',
+        error: (e) => 'Link could not be Deactivated: ' + e.message,
       }),
       catchError((error) => {
         this.router.navigateByUrl('/404');
         return this.handleError(error);
       })
     );
+  }
+
+  reactivateLink(id: number): Observable<URL> {
+    return this.http
+      .patch<URL>(this.APIHost + this.APIv1Path + id + '/reactivate', URL)
+      .pipe(
+        this.toast.observe({
+          loading: 'Reactivating...',
+          success: () => 'Link Reactivated',
+          error: (e) => 'Link could not be Reactivated: ' + e.message,
+        }),
+        catchError((error) => {
+          this.router.navigateByUrl('/404');
+          return this.handleError(error);
+        })
+      );
   }
 
   editTask(url: URL): Observable<URL> {
