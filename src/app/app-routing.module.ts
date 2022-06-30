@@ -24,6 +24,7 @@ import { DisclaimerComponent } from './components/disclaimer/disclaimer.componen
 import { LinkResolver } from './resolvers/link.resolver';
 import { DeactivatedLinksComponent } from './components/deactivated-links/deactivated-links.component';
 import { LinkDetailResolver } from './resolvers/link-detail.resolver';
+import { IpComponent } from './components/ip/ip.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,13 @@ const routes: Routes = [
     component: DeactivatedLinksComponent,
     data: {
       title: 'Deactivated Links',
+    },
+  },
+  {
+    path: 'ip',
+    component: IpComponent,
+    data: {
+      title: 'Whats my IP',
     },
   },
   {

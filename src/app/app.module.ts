@@ -37,6 +37,7 @@ import { BrowserTracing } from '@sentry/tracing';
 import { Router } from '@angular/router';
 import { DeactivatedLinksComponent } from './components/deactivated-links/deactivated-links.component';
 import { LinkCardComponent } from './template/link-card/link-card.component';
+import { IpComponent } from './components/ip/ip.component';
 
 Sentry.init({
   dsn: 'https://5f2c4369c4e04972b21a7d23537ec658@o1171884.ingest.sentry.io/6266816',
@@ -79,6 +80,7 @@ Sentry.init({
     DisclaimerComponent,
     DeactivatedLinksComponent,
     LinkCardComponent,
+    IpComponent,
   ],
   imports: [
     BrowserModule,

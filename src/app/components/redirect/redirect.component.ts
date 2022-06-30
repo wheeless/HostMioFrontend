@@ -34,7 +34,7 @@ export class RedirectComponent implements OnInit {
           .incrementClicks(param.shortUrl)
           .subscribe((link) => console.log(link)),
         (error) => {
-          console.log(error);
+          console.error(error);
         };
     });
   }
