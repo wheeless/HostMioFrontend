@@ -4,17 +4,10 @@
     <div class="row">
       <button
         type="button"
-        class="btn btn-primary button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
+        class="btn btn-primary button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-12"
         (click)="reloadLinks()"
       >
         Refresh Links
-      </button>
-      <button
-        type="button"
-        class="btn btn-info button-margin btn-lg view-long-url col-12 col-sm-12 col-md-12 col-lg-6"
-        (click)="showText()"
-      >
-        {{ isReadMore ? "View Full LongURL" : "Hide Full LongURL" }}
       </button>
     </div>
     <div class="container g-0">
@@ -24,7 +17,13 @@
             class="card text-center urlCards col-12 col-sm-12 col-md-12 col-lg-6"
             *ngFor="let url of urls | reverse"
           >
-            <span
+            <app-link-card
+              clicks="{{ url.clicks }}"
+              shortUrl="{{ url.shortUrl }}"
+              longUrl="{{ url.longUrl }}"
+            ></app-link-card>
+
+            <!-- <span
               class="position-absolute top-100 start-50 translate-middle badge badge-pill bg-success"
             >
               {{ url.clicks }} click(s)
@@ -68,7 +67,7 @@
               >
                 Details
               </button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

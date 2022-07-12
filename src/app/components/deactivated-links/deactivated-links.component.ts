@@ -72,7 +72,7 @@ export class DeactivatedLinksComponent implements OnInit {
     console.log(`Global loading ${time}ms`);
     console.log(`Global loading ${time / 1000}s`);
     console.log(`Component loading ${time - this.startTime}ms`);
-    console.log(`Component loading ${(time - this.startTime) / 1000}s`);
+    console.log(`Component loading ${(time - this.startTime) / 1000}s..`);
     const loadTime = `Global loading ${time}ms`;
   }
   // Created

@@ -1,11 +1,11 @@
 {
   "name": "hostmio-frontend",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
     "dry": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
